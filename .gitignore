@@ -1,0 +1,7 @@
+# 忽略f407目录下*.o,*.d,*.crf文件
+MDK-ARM/Objects/*.o
+MDK-ARM/Objects/*.i
+MDK-ARM/Objects/*.d
+MDK-ARM/Objects/*.crf
+MDK-ARM/*.uvguix.*
+

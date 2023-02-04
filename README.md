@@ -1,0 +1,35 @@
+CPU：STM32F407ZET6
+
+LQFP144
+
+FLASH：512KB
+
+RAM：192KB
+
+***
+
+STM32CubeMX：Version 6.6.1
+
+STM32Cube MCU Package for STM32F4 Series：Version 1.27.1
+
+***
+
+Toolchain：MDK-ARM Plus Version 5.33.0.0
+
+***
+
+使用STM32CubeMX生成工程
+
+UART2：PA2 - TX，PA3 - RX
+
+LED0 - PF9
+
+LED1 - PF10
+
+KEY0 - PE4
+
+KEY1 - PE3
+
+KEY2 - PE2
+
+KEY_UP - PA0
