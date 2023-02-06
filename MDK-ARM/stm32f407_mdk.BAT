@@ -1,4 +1,4 @@
-SET PATH=D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin;D:\software\install\STM32CubeMx\;D:\software\install\VMware-workstation\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\software\install\git\Git\cmd;D:\software\install\TortoiseGit\bin;D:\software\install\VSCode\Microsoft VS Code\bin;C:\Users\wangfeitao\AppData\Local\Microsoft\WindowsApps;;D:\software\install\STM32CubeMx\.\jre\\bin
+SET PATH=D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin;D:\software\install\VMware-workstation\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\software\install\git\Git\cmd;D:\software\install\TortoiseGit\bin;D:\software\install\VSCode\Microsoft VS Code\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\wangfeitao\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\MinGW\msys\1.0\bin
 SET CPU_TYPE=STM32F407ZGTx
 SET CPU_VENDOR=STMicroelectronics
 SET UV2_TARGET=stm32f407_mdk
@@ -27,6 +27,29 @@ SET CPU_CLOCK=0x007A1200
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\stm32f4xx_hal.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\stm32f4xx_hal_exti.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\system_stm32f4xx.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\clock.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\components.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\cpu.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\device.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\idle.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\ipc.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\irq.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\kservice.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mem.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\memheap.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\mempool.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\object.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\scheduler.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\signal.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\slab.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\thread.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\timer.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmAsm" --Via ".\objects\context_rvds._ia"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\cpuport.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\board.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\bsp_uart.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\dev_uart.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\fifo.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via ".\Objects\f407.lnp"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\fromelf.exe" ".\Objects\f407.axf" --i32combined --output ".\Objects\f407.hex"
 D:\software\install\MDK-ARM\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin -o ./Objects/f407.bin ./Objects/f407.axf"

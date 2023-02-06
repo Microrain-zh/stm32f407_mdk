@@ -1,0 +1,7 @@
+--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto -c
+-gdwarf-3
+-I./RTE/_stm32f407_mdk
+-ID:/software/install/MDK-ARM/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include
+-ID:/software/install/MDK-ARM/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+-Wa,armasm,--pd,"__UVISION_VERSION SETA 533" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F407xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"
+-o ./objects/startup_stm32f407xx.o "startup_stm32f407xx.s"
