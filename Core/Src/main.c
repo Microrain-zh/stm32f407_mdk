@@ -102,7 +102,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
     uart_poll_dma_tx(DEV_UART2);
-    (void)rt_thread_yield();
+    rt_thread_delay(5);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

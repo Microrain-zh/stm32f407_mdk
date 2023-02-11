@@ -49,14 +49,11 @@ void thread1_entry(void* parameter)
 {
      int i;
 
-    while (1)
-    {
-        for (i = 0; i < 10; i ++)
-        {
+    while (1) {
+        for (i = 0; i < 10; i ++) {
             rt_kprintf("task1 %d\n", i);
         }
-
-        (void)rt_thread_yield();
+        rt_thread_delay(5);
     }
 }
 
@@ -64,14 +61,11 @@ void thread2_entry(void* parameter)
 {
      int i;
 
-    while (1)
-    {
-        for (i = 0; i < 10; i ++)
-        {
+    while (1) {
+        for (i = 0; i < 10; i ++) {
             rt_kprintf("task2 %d\n", i);
         }
-
-        (void)rt_thread_yield();
+        rt_thread_delay(5);
     }
 }
 
@@ -79,14 +73,11 @@ void thread3_entry(void* parameter)
 {
      int i;
 
-    while (1)
-    {
-        for (i = 0; i < 10; i ++)
-        {
+    while (1) {
+        for (i = 0; i < 10; i ++) {
             rt_kprintf("task3 %d\n", i);
         }
-
-        (void)rt_thread_yield();
+        rt_thread_delay(5);
     }
 }
 
@@ -94,14 +85,11 @@ void thread4_entry(void* parameter)
 {
      int i;
 
-    while (1)
-    {
-        for (i = 0; i < 10; i ++)
-        {
+    while (1) {
+        for (i = 0; i < 10; i ++) {
             rt_kprintf("task4 %d\n", i);
         }
-
-        (void)rt_thread_yield();
+        rt_thread_delay(5);
     }
 }
 
@@ -109,14 +97,11 @@ void thread5_entry(void* parameter)
 {
      int i;
 
-    while (1)
-    {
-        for (i = 0; i < 10; i ++)
-        {
+    while (1) {
+        for (i = 0; i < 10; i ++) {
             rt_kprintf("task5 %d\n", i);
         }
-
-        (void)rt_thread_yield();
+        rt_thread_delay(5);
     }
 }
 
