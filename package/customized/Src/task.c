@@ -7,9 +7,7 @@
 
 #include "task.h"
 #include <rtthread.h>
-
-//#include "sys_cfg.h"
-//#include "tmr.h"
+#include "sys_cfg.h"
 
 //#define KEY_EVENT_START_TIME 5
 //#define KEY_EVENT_CYCLE_TIME 5
@@ -49,6 +47,8 @@ void thread1_entry(void* parameter)
 {
      int i;
 
+    Tmr1Init();
+
     while (1) {
         for (i = 0; i < 10; i ++) {
             rt_kprintf("task1 %d\n", i);
@@ -60,6 +60,8 @@ void thread1_entry(void* parameter)
 void thread2_entry(void* parameter)
 {
      int i;
+
+    Tmr2Init();
 
     while (1) {
         for (i = 0; i < 10; i ++) {
@@ -73,6 +75,8 @@ void thread3_entry(void* parameter)
 {
      int i;
 
+    Tmr3Init();
+
     while (1) {
         for (i = 0; i < 10; i ++) {
             rt_kprintf("task3 %d\n", i);
@@ -85,6 +89,8 @@ void thread4_entry(void* parameter)
 {
      int i;
 
+    Tmr4Init();
+
     while (1) {
         for (i = 0; i < 10; i ++) {
             rt_kprintf("task4 %d\n", i);
@@ -95,7 +101,9 @@ void thread4_entry(void* parameter)
 
 void thread5_entry(void* parameter)
 {
-     int i;
+    int i;
+
+    Tmr5Init();
 
     while (1) {
         for (i = 0; i < 10; i ++) {
@@ -153,3 +161,4 @@ static int thread_sample_init(void)
     return 0;
 }
 INIT_APP_EXPORT(thread_sample_init);
+

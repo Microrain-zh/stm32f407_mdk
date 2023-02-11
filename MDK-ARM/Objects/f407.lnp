@@ -47,6 +47,8 @@
 ".\objects\dev_uart.o"
 ".\objects\fifo.o"
 ".\objects\task.o"
+".\objects\tmr.o"
+".\objects\sys_cfg.o"
 --library_type=microlib --strict --scatter ".\Objects\f407.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
