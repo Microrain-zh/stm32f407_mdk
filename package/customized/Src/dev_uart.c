@@ -54,13 +54,15 @@ uint32_t s_UartTxRxCount[4] = {0};
 /* fifo上锁函数 */
 static void fifo_lock(void)
 {
-    __disable_irq();
+//    __disable_irq();
+    __asm("CPSID I");
 }
 
 /* fifo解锁函数 */
 static void fifo_unlock(void)
 {
-    __enable_irq();
+//    __enable_irq();
+    __asm("CPSIE I");
 }
 
 /**

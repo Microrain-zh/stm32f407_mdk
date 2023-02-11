@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath></ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -647,6 +647,11 @@
               <FileName>fifo.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\package\customized\Src\fifo.c</FilePath>
+            </File>
+            <File>
+              <FileName>task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\task.c</FilePath>
             </File>
           </Files>
         </Group>

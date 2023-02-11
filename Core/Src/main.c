@@ -24,9 +24,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+#include "rtthread.h"
 #include "board.h"
-void rt_hw_console_output(const char *str);
-void uart_poll_dma_tx(uint8_t uart_id);
+#include "dev_uart.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,8 +101,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    uart_poll_dma_tx(0);
-    HAL_Delay(100);
+    uart_poll_dma_tx(DEV_UART2);
+    (void)rt_thread_yield();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

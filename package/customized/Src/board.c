@@ -12,13 +12,14 @@
 #include "usart.h"
 #include "gpio.h"
 #include "rtconfig.h"
+#include "task.h"
 #include "dev_uart.h"
 
 void  OsSysTickInit (void)
 {
     HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / RT_TICK_PER_SECOND);
     HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
-    HAL_NVIC_SetPriority(SysTick_IRQn, 15, 0);
+    HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 /* 使用microLib的方法 */
 int fputc(int ch, FILE *f)
@@ -29,7 +30,7 @@ int fputc(int ch, FILE *f)
 
 void rt_hw_console_output(const char *str)
 {
-    uart_write(DEV_UART1, (const uint8_t *)str, strlen((const char *)str));
+    uart_write(DEV_UART2, (const uint8_t *)str, strlen((const char *)str));
 }
 
 void SystemClock_Config(void)
@@ -81,6 +82,6 @@ void rt_hw_board_init(void)
     MX_DMA_Init();
     MX_USART2_UART_Init();
     OsSysTickInit();
-    uart_device_init(DEV_UART1);
+    uart_device_init(DEV_UART2);
 }
 

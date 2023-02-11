@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
 D:\github\stm32f4\stm32f407_mdk\MDK-ARM\stm32f407_mdk.uvprojx
-Project File Date:  02/07/2023
+Project File Date:  02/10/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin'
@@ -58,6 +58,15 @@ compiling cpu.c...
 compiling device.c...
 compiling idle.c...
 compiling ipc.c...
+..\RT-Thread\src\ipc.c(86): warning:  #177-D: function "_ipc_object_init"  was declared but never referenced
+  rt_inline rt_err_t _ipc_object_init(struct rt_ipc_object *ipc)
+..\RT-Thread\src\ipc.c(124): warning:  #177-D: function "_ipc_list_suspend"  was declared but never referenced
+  rt_inline rt_err_t _ipc_list_suspend(rt_list_t        *list,
+..\RT-Thread\src\ipc.c(193): warning:  #177-D: function "_ipc_list_resume"  was declared but never referenced
+  rt_inline rt_err_t _ipc_list_resume(rt_list_t *list)
+..\RT-Thread\src\ipc.c(222): warning:  #177-D: function "_ipc_list_resume_all"  was declared but never referenced
+  rt_inline rt_err_t _ipc_list_resume_all(rt_list_t *list)
+..\RT-Thread\src\ipc.c: 4 warnings, 0 errors
 compiling irq.c...
 compiling kservice.c...
 compiling mem.c...
@@ -75,11 +84,12 @@ compiling board.c...
 compiling bsp_uart.c...
 compiling dev_uart.c...
 compiling fifo.c...
+compiling task.c...
 linking...
-Program Size: Code=18152 RO-data=1276 RW-data=340 ZI-data=22996  
+Program Size: Code=16832 RO-data=768 RW-data=168 ZI-data=19968  
 FromELF: creating hex file...
 After Build - User command #1: D:\software\install\MDK-ARM\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin -o ./Objects/f407.bin ./Objects/f407.axf"
-".\Objects\f407.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\f407.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -103,7 +113,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.4.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:43
+Build Time Elapsed:  00:00:10
 </pre>
 </body>
 </html>

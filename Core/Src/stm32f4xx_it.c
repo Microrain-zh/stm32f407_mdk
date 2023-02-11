@@ -209,10 +209,10 @@ void DMA1_Stream5_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Stream5_IRQn 0 */
     if (__HAL_DMA_GET_FLAG(&hdma_usart2_rx, DMA_FLAG_HTIF1_5) != RESET) {
-        uart_dmarx_half_done_isr(DEV_UART1);
+        uart_dmarx_half_done_isr(DEV_UART2);
     }
     if (__HAL_DMA_GET_FLAG(&hdma_usart2_rx, DMA_FLAG_TCIF1_5) != RESET) {
-        uart_dmarx_done_isr(DEV_UART1);
+        uart_dmarx_done_isr(DEV_UART2);
     }
   /* USER CODE END DMA1_Stream5_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart2_rx);
@@ -228,7 +228,7 @@ void DMA1_Stream6_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Stream6_IRQn 0 */
     if (__HAL_DMA_GET_FLAG(&hdma_usart2_tx, DMA_FLAG_TCIF2_6) != RESET) {
-        uart_dmatx_done_isr(DEV_UART1);
+        uart_dmatx_done_isr(DEV_UART2);
     }
   /* USER CODE END DMA1_Stream6_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart2_tx);
@@ -244,7 +244,7 @@ void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
     if (__HAL_DMA_GET_FLAG(&hdma_usart2_rx, UART_FLAG_IDLE) != RESET) {
-        uart_dmatx_done_isr(DEV_UART1);
+        uart_dmarx_done_isr(DEV_UART2);
     }
   /* USER CODE END USART2_IRQn 0 */
   HAL_UART_IRQHandler(&huart2);
