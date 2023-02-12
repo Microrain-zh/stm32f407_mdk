@@ -5,8 +5,7 @@
  * Create: 2023-01-15
  */
 
- #include "sys_cfg.h"
- #include "tmr.h"
+#include "sys_cfg.h"
 
 TMGR_CONSTRUCT(g_task1TmrTmgr);
 TMGR_CONSTRUCT(g_task2TmrTmgr);
@@ -18,7 +17,7 @@ TMGR_CONSTRUCT(g_task5TmrTmgr);
 #define TASK_CYCLE_TIME_TASK2 5
 #define TASK_CYCLE_TIME_TASK3 10
 #define TASK_CYCLE_TIME_TASK4 5
-#define TASK_CYCLE_TIME_TASK5 20
+#define TASK_CYCLE_TIME_TASK5 5
 
 HndTmgr OsApiGetTmrgrHnd(TaskTimerType type)
 {
@@ -49,24 +48,49 @@ HndTmgr OsApiGetTmrgrHnd(TaskTimerType type)
 
 void Tmr1Init(void)
 {
-    TmgrHandleTick(TMGR_OBJ_HANDLE(g_task1TmrTmgr), TASK_CYCLE_TIME_TASK1);
+    TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK1));
 }
 
 void Tmr2Init(void)
 {
-    TmgrHandleTick(TMGR_OBJ_HANDLE(g_task2TmrTmgr), TASK_CYCLE_TIME_TASK2);
+    TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK2));
 }
 
 void Tmr3Init(void)
 {
-    TmgrHandleTick(TMGR_OBJ_HANDLE(g_task3TmrTmgr), TASK_CYCLE_TIME_TASK3);
+    TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK3));
 }
 
 void Tmr4Init(void)
 {
+    TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK4));
+}
+
+void Tmr5Init(void)
+{
+    TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK5));
+}
+
+void Tmr1Hanler(void)
+{
+    TmgrHandleTick(TMGR_OBJ_HANDLE(g_task1TmrTmgr), TASK_CYCLE_TIME_TASK1);
+}
+
+void Tmr2Hanler(void)
+{
+    TmgrHandleTick(TMGR_OBJ_HANDLE(g_task2TmrTmgr), TASK_CYCLE_TIME_TASK2);
+}
+
+void Tmr3Hanler(void)
+{
+    TmgrHandleTick(TMGR_OBJ_HANDLE(g_task3TmrTmgr), TASK_CYCLE_TIME_TASK3);
+}
+
+void Tmr4Hanler(void)
+{
     TmgrHandleTick(TMGR_OBJ_HANDLE(g_task4TmrTmgr), TASK_CYCLE_TIME_TASK4);
 }
-void Tmr5Init(void)
+void Tmr5Hanler(void)
 {
     TmgrHandleTick(TMGR_OBJ_HANDLE(g_task5TmrTmgr), TASK_CYCLE_TIME_TASK5);
 }

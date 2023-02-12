@@ -8,25 +8,7 @@
 #include "task.h"
 #include <rtthread.h>
 #include "sys_cfg.h"
-
-//#define KEY_EVENT_START_TIME 5
-//#define KEY_EVENT_CYCLE_TIME 5
-
-//TMR_CALLBACK_FUNC(KeyEvent);
-//TMR_CONSTRUCT(g_keyEvent, TMR_CALLBACK_FUNC_REF(KeyEvent));
-
-//void Task1Init(void)
-//{
-//    TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK1));
-
-//    TmgrStartTimer(OsApiGetTmrgrHnd(TIMER_TYPE_TASK1), TMR_OBJ_HANDLE(g_keyEvent), KEY_EVENT_START_TIME,
-//        KEY_EVENT_CYCLE_TIME);
-//}
-
-//TMR_CALLBACK_FUNC(KeyEvent)
-//{
-//    /* handle */
-//}
+#include "key_detect.h"
 
 static struct rt_thread thread1;
 static rt_uint8_t thread1_stack[512];
@@ -45,56 +27,60 @@ static rt_uint8_t thread5_stack[512];
 
 void thread1_entry(void* parameter)
 {
-     int i;
+    int i;
 
     Tmr1Init();
 
     while (1) {
         for (i = 0; i < 10; i ++) {
-            rt_kprintf("task1 %d\n", i);
+//            rt_kprintf("task1 %d\n", i);
         }
+        Tmr1Hanler();
         rt_thread_delay(5);
     }
 }
 
 void thread2_entry(void* parameter)
 {
-     int i;
+    int i;
 
     Tmr2Init();
 
     while (1) {
         for (i = 0; i < 10; i ++) {
-            rt_kprintf("task2 %d\n", i);
+//            rt_kprintf("task2 %d\n", i);
         }
+        Tmr2Hanler();
         rt_thread_delay(5);
     }
 }
 
 void thread3_entry(void* parameter)
 {
-     int i;
+    int i;
 
     Tmr3Init();
 
     while (1) {
         for (i = 0; i < 10; i ++) {
-            rt_kprintf("task3 %d\n", i);
+//            rt_kprintf("task3 %d\n", i);
         }
+        Tmr3Hanler();
         rt_thread_delay(5);
     }
 }
 
 void thread4_entry(void* parameter)
 {
-     int i;
+    int i;
 
     Tmr4Init();
 
     while (1) {
         for (i = 0; i < 10; i ++) {
-            rt_kprintf("task4 %d\n", i);
+//            rt_kprintf("task4 %d\n", i);
         }
+        Tmr4Hanler();
         rt_thread_delay(5);
     }
 }
@@ -105,10 +91,13 @@ void thread5_entry(void* parameter)
 
     Tmr5Init();
 
+    KeyDetectInit();
+
     while (1) {
         for (i = 0; i < 10; i ++) {
-            rt_kprintf("task5 %d\n", i);
+//            rt_kprintf("task5 %d\n", i);
         }
+        Tmr5Hanler();
         rt_thread_delay(5);
     }
 }

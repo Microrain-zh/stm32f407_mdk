@@ -53,6 +53,8 @@ SET CPU_CLOCK=0x007A1200
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\task.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\tmr.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\sys_cfg.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\multi_button.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\key_detect.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via ".\Objects\f407.lnp"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\fromelf.exe" ".\Objects\f407.axf" --i32combined --output ".\Objects\f407.hex"
 D:\software\install\MDK-ARM\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin -o ./Objects/f407.bin ./Objects/f407.axf"

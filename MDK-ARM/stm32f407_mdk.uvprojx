@@ -663,6 +663,16 @@
               <FileType>1</FileType>
               <FilePath>..\package\customized\Src\sys_cfg.c</FilePath>
             </File>
+            <File>
+              <FileName>multi_button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\multi_button.c</FilePath>
+            </File>
+            <File>
+              <FileName>key_detect.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\key_detect.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

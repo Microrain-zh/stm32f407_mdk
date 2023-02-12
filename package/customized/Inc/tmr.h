@@ -20,7 +20,7 @@ typedef void (*FpTmrCallback)(void);
 #define TMR_STATE_ACTIVE     2
 
 #define TMR_CALLBACK_FUNC(str) void TmrCallback##str(void)
-#define TMR_CALLBACK_FUNC_REF(str) void TmrCallback##str
+#define TMR_CALLBACK_FUNC_REF(str) TmrCallback##str
 
 #define USE_EXTERN_TMR_OBJ(objName) extern const struct TagTmr objName
 
@@ -68,7 +68,7 @@ typedef struct TagTmgr {
 
 /* TMR对象构造器 */
 #define TMR_CONSTRUCT(objName, callbackFunc) \
-    struct TmrRam objName##Ram = { \
+        TmrRam objName##Ram = { \
         TMR_STATE_INACTIVE, TMR_TIMEOUT_TRIGGERED, TMR_TIMEOUT_CYCLE_SINGLE_SHOT, (HndTmr)NULL, (HndTmr)NULL}; \
     const struct TagTmr objName = {&objName##Ram, callbackFunc}
 
