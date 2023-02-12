@@ -25,16 +25,22 @@ static rt_uint8_t thread4_stack[512];
 static struct rt_thread thread5;
 static rt_uint8_t thread5_stack[512];
 
+#define TASK1_PRIORITY          5
+#define TASK2_PRIORITY          10
+#define TASK3_PRIORITY          15
+#define TASK4_PRIORITY          20
+#define TASK5_PRIORITY          25
+#define TASK1_TICK_PER_SECOND   5
+#define TASK2_TICK_PER_SECOND   5
+#define TASK3_TICK_PER_SECOND   5
+#define TASK4_TICK_PER_SECOND   5
+#define TASK5_TICK_PER_SECOND   5
+
 void thread1_entry(void* parameter)
 {
-    int i;
-
     Tmr1Init();
 
     while (1) {
-        for (i = 0; i < 10; i ++) {
-//            rt_kprintf("task1 %d\n", i);
-        }
         Tmr1Hanler();
         rt_thread_delay(5);
     }
@@ -42,14 +48,9 @@ void thread1_entry(void* parameter)
 
 void thread2_entry(void* parameter)
 {
-    int i;
-
     Tmr2Init();
 
     while (1) {
-        for (i = 0; i < 10; i ++) {
-//            rt_kprintf("task2 %d\n", i);
-        }
         Tmr2Hanler();
         rt_thread_delay(5);
     }
@@ -57,14 +58,9 @@ void thread2_entry(void* parameter)
 
 void thread3_entry(void* parameter)
 {
-    int i;
-
     Tmr3Init();
 
     while (1) {
-        for (i = 0; i < 10; i ++) {
-//            rt_kprintf("task3 %d\n", i);
-        }
         Tmr3Hanler();
         rt_thread_delay(5);
     }
@@ -72,14 +68,9 @@ void thread3_entry(void* parameter)
 
 void thread4_entry(void* parameter)
 {
-    int i;
-
     Tmr4Init();
 
     while (1) {
-        for (i = 0; i < 10; i ++) {
-//            rt_kprintf("task4 %d\n", i);
-        }
         Tmr4Hanler();
         rt_thread_delay(5);
     }
@@ -87,16 +78,10 @@ void thread4_entry(void* parameter)
 
 void thread5_entry(void* parameter)
 {
-    int i;
-
     Tmr5Init();
-
     KeyDetectInit();
 
     while (1) {
-        for (i = 0; i < 10; i ++) {
-//            rt_kprintf("task5 %d\n", i);
-        }
         Tmr5Hanler();
         rt_thread_delay(5);
     }
@@ -112,35 +97,40 @@ static int thread_sample_init(void)
      * 线程栈是 thread1_stack
      * 优先级是 200，时间片是 10 个 OS Tick
      */
-    result = rt_thread_init(&thread1, "thread1", thread1_entry, RT_NULL, &thread1_stack[0], sizeof(thread1_stack), 5, 5);
+    result = rt_thread_init(&thread1, "thread1", thread1_entry, RT_NULL, &thread1_stack[0], sizeof(thread1_stack),
+        TASK1_PRIORITY, TASK1_TICK_PER_SECOND);
     if (result == RT_EOK) {
         rt_thread_startup(&thread1);
     } else {
         rt_kprintf("thread1 init fail %u\r\n", result);
     }
 
-    result = rt_thread_init(&thread2, "thread2", thread2_entry, RT_NULL, &thread2_stack[0], sizeof(thread2_stack), 10, 5);
+    result = rt_thread_init(&thread2, "thread2", thread2_entry, RT_NULL, &thread2_stack[0], sizeof(thread2_stack),
+        TASK2_PRIORITY, TASK2_TICK_PER_SECOND);
     if (result == RT_EOK) {
         rt_thread_startup(&thread2);
     } else {
         rt_kprintf("thread2 init fail %u\r\n", result);
     }
 
-    result = rt_thread_init(&thread3, "thread3", thread3_entry, RT_NULL, &thread3_stack[0], sizeof(thread3_stack), 15, 5);
+    result = rt_thread_init(&thread3, "thread3", thread3_entry, RT_NULL, &thread3_stack[0], sizeof(thread3_stack),
+        TASK3_PRIORITY, TASK3_TICK_PER_SECOND);
     if (result == RT_EOK) {
         rt_thread_startup(&thread3);
     } else {
         rt_kprintf("thread3 init fail %u\r\n", result);
     }
 
-    result = rt_thread_init(&thread4, "thread4", thread4_entry, RT_NULL, &thread4_stack[0], sizeof(thread4_stack), 20, 5);
+    result = rt_thread_init(&thread4, "thread4", thread4_entry, RT_NULL, &thread4_stack[0], sizeof(thread4_stack),
+        TASK4_PRIORITY, TASK4_TICK_PER_SECOND);
     if (result == RT_EOK) {
         rt_thread_startup(&thread4);
     } else {
         rt_kprintf("thread4 init fail %u\r\n", result);
     }
 
-    result = rt_thread_init(&thread5, "thread5", thread5_entry, RT_NULL, &thread5_stack[0], sizeof(thread5_stack), 25, 5);
+    result = rt_thread_init(&thread5, "thread5", thread5_entry, RT_NULL, &thread5_stack[0], sizeof(thread5_stack),
+        TASK5_PRIORITY, TASK5_TICK_PER_SECOND);
     if (result == RT_EOK) {
         rt_thread_startup(&thread5);
     } else {
