@@ -644,11 +644,6 @@
               <FilePath>..\package\customized\Src\dev_uart.c</FilePath>
             </File>
             <File>
-              <FileName>fifo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\fifo.c</FilePath>
-            </File>
-            <File>
               <FileName>task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\package\customized\Src\task.c</FilePath>
@@ -672,6 +667,11 @@
               <FileName>key_detect.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\package\customized\Src\key_detect.c</FilePath>
+            </File>
+            <File>
+              <FileName>fifo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\fifo.c</FilePath>
             </File>
           </Files>
         </Group>

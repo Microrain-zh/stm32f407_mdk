@@ -11,8 +11,8 @@
 typedef struct
 {
     uint8_t status;        /* 发送状态 */
-    _fifo_t tx_fifo;    /* 发送fifo */
-    _fifo_t rx_fifo;    /* 接收fifo */
+    struct Fifo tx_fifo;    /* 发送fifo */
+    struct Fifo rx_fifo;    /* 接收fifo */
     uint8_t *dmarx_buf;    /* dma接收缓存 */
     uint16_t dmarx_buf_size;/* dma接收缓存大小*/
     uint8_t *dmatx_buf;    /* dma发送缓存 */
@@ -75,10 +75,10 @@ void uart_device_init(uint8_t uart_id)
     if (uart_id == 0)
     {
         /* 配置串口1收发fifo */
-        fifo_register(&s_uart_dev[uart_id].tx_fifo, &s_uart1_tx_buf[0], 
-                      sizeof(s_uart1_tx_buf), NULL, NULL);
-        fifo_register(&s_uart_dev[uart_id].rx_fifo, &s_uart1_rx_buf[0], 
-                      sizeof(s_uart1_rx_buf), fifo_lock, fifo_unlock);
+        FifoInit(&s_uart_dev[uart_id].tx_fifo, &s_uart1_tx_buf[0], 
+                      sizeof(s_uart1_tx_buf),sizeof(uint8_t), NULL, NULL);
+        FifoInit(&s_uart_dev[uart_id].rx_fifo, &s_uart1_rx_buf[0], 
+                      sizeof(s_uart1_rx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
         
         /* 配置串口1 DMA收发buf */
         s_uart_dev[uart_id].dmarx_buf = &s_uart1_dmarx_buf[0];
@@ -92,10 +92,10 @@ void uart_device_init(uint8_t uart_id)
     else if (uart_id == 1)
     {
         /* 配置串口2收发fifo */
-        fifo_register(&s_uart_dev[uart_id].tx_fifo, &s_uart2_tx_buf[0], 
-                      sizeof(s_uart2_tx_buf), fifo_lock, fifo_unlock);
-        fifo_register(&s_uart_dev[uart_id].rx_fifo, &s_uart2_rx_buf[0], 
-                      sizeof(s_uart2_rx_buf), fifo_lock, fifo_unlock);
+        FifoInit(&s_uart_dev[uart_id].tx_fifo, &s_uart2_tx_buf[0], 
+                      sizeof(s_uart2_tx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
+        FifoInit(&s_uart_dev[uart_id].rx_fifo, &s_uart2_rx_buf[0], 
+                      sizeof(s_uart2_rx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
         
         /* 配置串口2 DMA收发buf */
         s_uart_dev[uart_id].dmarx_buf = &s_uart2_dmarx_buf[0];
@@ -115,7 +115,7 @@ void uart_device_init(uint8_t uart_id)
  */
 uint16_t uart_write(uint8_t uart_id, const uint8_t *buf, uint16_t size)
 {
-    return fifo_write(&s_uart_dev[uart_id].tx_fifo, buf, size);
+    return FifoIn(&s_uart_dev[uart_id].tx_fifo, buf, size);
 }
 
 /**
@@ -125,7 +125,7 @@ uint16_t uart_write(uint8_t uart_id, const uint8_t *buf, uint16_t size)
  */
 uint16_t uart_read(uint8_t uart_id, uint8_t *buf, uint16_t size)
 {
-    return fifo_read(&s_uart_dev[uart_id].rx_fifo, buf, size);
+    return FifoOut(&s_uart_dev[uart_id].rx_fifo, buf, size);
 }
 
 /**
@@ -139,7 +139,7 @@ void uart_dmarx_done_isr(uint8_t uart_id)
     
     recv_size = s_uart_dev[uart_id].dmarx_buf_size - s_uart_dev[uart_id].last_dmarx_size;
     s_UartTxRxCount[uart_id*2+1] += recv_size;
-    fifo_write(&s_uart_dev[uart_id].rx_fifo, 
+    FifoIn(&s_uart_dev[uart_id].rx_fifo, 
                    (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
 
     s_uart_dev[uart_id].last_dmarx_size = 0;
@@ -166,7 +166,7 @@ void uart_dmarx_half_done_isr(uint8_t uart_id)
     recv_size = recv_total_size - s_uart_dev[uart_id].last_dmarx_size;
     s_UartTxRxCount[uart_id*2+1] += recv_size;
     
-    fifo_write(&s_uart_dev[uart_id].rx_fifo, 
+    FifoIn(&s_uart_dev[uart_id].rx_fifo, 
                    (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
     s_uart_dev[uart_id].last_dmarx_size = recv_total_size;
 }
@@ -191,7 +191,7 @@ void uart_dmarx_idle_isr(uint8_t uart_id)
     }
     recv_size = recv_total_size - s_uart_dev[uart_id].last_dmarx_size;
     s_UartTxRxCount[uart_id*2+1] += recv_size;
-    fifo_write(&s_uart_dev[uart_id].rx_fifo, 
+    FifoIn(&s_uart_dev[uart_id].rx_fifo, 
                    (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
     s_uart_dev[uart_id].last_dmarx_size = recv_total_size;
 }
@@ -219,7 +219,7 @@ void uart_poll_dma_tx(uint8_t uart_id)
     {
         return;
     }
-    size = fifo_read(&s_uart_dev[uart_id].tx_fifo, s_uart_dev[uart_id].dmatx_buf,
+    size = FifoOut(&s_uart_dev[uart_id].tx_fifo, s_uart_dev[uart_id].dmatx_buf,
                      s_uart_dev[uart_id].dmatx_buf_size);
     if (size != 0)
     {    

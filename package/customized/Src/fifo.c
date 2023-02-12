@@ -1,171 +1,167 @@
+/*
+ * Copyright (c) Mr.Lee. 2021. All rights reserved.
+ * Description: 
+ * Author: Mr.Lee
+ * Create: 2022-12-30
+ */
 
-#include <stdint.h>
-#include <stdbool.h>
 #include <string.h>
+#include <stdbool.h>
 #include "fifo.h"
-#include <stddef.h>
 
-/**
-  * @brief  注册一个fifo
-  * @param  pfifo: fifo结构体指针
-            pfifo_buf: fifo内存块
-            size: 长度
-  * @retval none
-*/
-void fifo_register(_fifo_t *pfifo, uint8_t *pfifo_buf, uint32_t size,
-                   lock_fun lock, lock_fun unlock)
-{
-    pfifo->buf_size = size;
-    pfifo->buf     = pfifo_buf;
-    pfifo->pwrite = pfifo->buf;
-    pfifo->pread  = pfifo->buf;
-    pfifo->occupy_size = 0;
-    pfifo->lock = lock;
-    pfifo->unlock = unlock;
-}
- 
-/**
-  * @brief  释放fifo
-  * @param  pfifo: fifo结构体指针
-  * @retval none
-*/
-void fifo_release(_fifo_t *pfifo)
-{
-    pfifo->buf_size = 0;
-    pfifo->occupy_size = 0;
-    pfifo->buf     = NULL;
-    pfifo->pwrite = 0;
-    pfifo->pread  = 0;
-    pfifo->lock = NULL;
-    pfifo->unlock = NULL; 
-}
- 
-/**
-  * @brief  往fifo写数据
-  * @param  pfifo: fifo结构体指针
-            pbuf: 待写数据
-            size: 待写数据大小
-  * @retval 实际写大小
-*/
-uint32_t fifo_write(_fifo_t *pfifo, const uint8_t *pbuf, uint32_t size)
-{
-    uint32_t w_size= 0,free_size = 0;
-    
-    if ((size==0) || (pfifo==NULL) || (pbuf==NULL))
-    {
-        return 0;
-    }
- 
-    free_size = fifo_get_free_size(pfifo);
-    if(free_size == 0)
-    {
-        return 0;
-    }
+#define IS_POWER_OF_2(x)    ((x) != 0 && (((x) & ((x) - 1)) == 0))
+#define EINVAL 22 /* Invalid argument */
 
-    if(free_size < size)
-    {
-        size = free_size;
-    }
-    w_size = size;
-    if (pfifo->lock != NULL)
-        pfifo->lock();
-    while(w_size-- > 0)
-    {
-        *pfifo->pwrite++ = *pbuf++;
-        if (pfifo->pwrite >= (pfifo->buf + pfifo->buf_size)) 
-        {
-            pfifo->pwrite = pfifo->buf;
-        }
-        pfifo->occupy_size++;
-    }
-    if (pfifo->unlock != NULL)
-        pfifo->unlock();
-    return size;
-}
- 
-/**
-  * @brief  从fifo读数据
-  * @param  pfifo: fifo结构体指针
-            pbuf: 待读数据缓存
-            size: 待读数据大小
-  * @retval 实际读大小
-*/
-uint32_t fifo_read(_fifo_t *pfifo, uint8_t *pbuf, uint32_t size)
+static unsigned int RounddownPowOfTwo(unsigned int x)
 {
-    uint32_t r_size = 0,occupy_size = 0;
-    
-    if ((size==0) || (pfifo==NULL) || (pbuf==NULL))
-    {
-        return 0;
-    }
-    
-    occupy_size = fifo_get_occupy_size(pfifo);
-    if(occupy_size == 0)
-    {
-        return 0;
-    }
+    int position = 0;
+    int i;
+    /* 0会取值成-1，然后取到的位置为32，1左移32位后还是为0 */
+    for (i = (x-1); i != 0; ++position)
+        i >>= 1;
 
-    if(occupy_size < size)
-    {
-        size = occupy_size;
-    }
-    if (pfifo->lock != NULL)
-        pfifo->lock();
-    r_size = size;
-    while(r_size-- > 0)
-    {
-        *pbuf++ = *pfifo->pread++;
-        if (pfifo->pread >= (pfifo->buf + pfifo->buf_size)) 
-        {
-            pfifo->pread = pfifo->buf;
-        }
-        pfifo->occupy_size--;
-    }
-    if (pfifo->unlock != NULL)
-        pfifo->unlock();
-    return size;
-}
- 
-/**
-  * @brief  获取fifo空间大小
-  * @param  pfifo: fifo结构体指针
-  * @retval fifo大小
-*/
-uint32_t fifo_get_total_size(_fifo_t *pfifo)
-{
-    if (pfifo==NULL)
-        return 0;
-    
-    return pfifo->buf_size;
-}
- 
-/**
-  * @brief  获取fifo空闲空间大小
-  * @param  pfifo: fifo结构体指针
-  * @retval 空闲空间大小
-*/
-uint32_t fifo_get_free_size(_fifo_t *pfifo)
-{
-    uint32_t size;
- 
-    if (pfifo==NULL)
-        return 0;
-    
-    size = pfifo->buf_size - fifo_get_occupy_size(pfifo);
-
-    return size;
-}
- 
-/**
-  * @brief  获取fifo已用空间大小
-  * @param  pfifo: fifo结构体指针
-  * @retval fifo已用大小
-*/
-uint32_t fifo_get_occupy_size(_fifo_t *pfifo)
-{
-    if (pfifo==NULL)
-        return 0;
-    
-    return  pfifo->occupy_size;
+    return 1UL << position;
 }
 
+int FifoInit(struct Fifo *fifo, void *buffer, unsigned int size, size_t esize, lock_fun lock, lock_fun unlock)
+{
+    size /= esize; /* 缓冲大小换算可元素个数 */
+
+    if (!IS_POWER_OF_2(size)) {
+        /* 扩展为2的幂 */
+        size = RounddownPowOfTwo(size);
+    };
+
+    fifo->in = 0;
+    fifo->out = 0;
+    fifo->esize = esize;
+    fifo->data = buffer;
+
+    if (size < 2) {
+        fifo->mask = 0;
+        return -EINVAL;
+    }
+    fifo->mask = size - 1;
+    fifo->lock = lock;
+    fifo->unlock = unlock;
+
+    return 0;
+}
+
+void FifoFree(struct Fifo *fifo)
+{
+    fifo->in = 0;
+    fifo->out = 0;
+    fifo->esize = 0;
+    fifo->data = NULL;
+    fifo->mask = 0;
+    fifo->lock = NULL;
+    fifo->unlock = NULL;
+}
+
+static inline unsigned int FifoUnused(struct Fifo *fifo)
+{
+    return (fifo->mask + 1) - (fifo->in - fifo->out); /* in和out最大值取2^32-1，无符号溢出回绕也会得到正确值 */
+}
+
+static inline unsigned int min(unsigned int x,unsigned int y)
+{
+    return x < y ? x : y;
+}
+
+static void FifoCopyIn(struct Fifo *fifo, const void *src, unsigned int len, unsigned int off)
+{
+    unsigned int size = fifo->mask + 1;
+    unsigned int esize = fifo->esize;
+    unsigned int l;
+
+    off &= fifo->mask; /* 求余转位运算计算写索引 */
+    if (esize != 1) { /* 元素类型大小不为1， 求对应写索引偏移，缓冲大小，写入长度 */
+        off *= esize;
+        size *= esize;
+        len *= esize;
+    }
+    l = min(len, size - off); /* 取写入长度和缓冲剩余大小的最小值 */
+
+    memcpy((unsigned char *)fifo->data + off, (unsigned char *)src, l);
+    memcpy((unsigned char *)fifo->data, (unsigned char *)src + l, len - l); /* 写到队尾从队头开始写 */
+
+}
+
+unsigned int FifoIn(struct Fifo *fifo, const void *buf, unsigned int len)
+{
+    unsigned int l;
+
+    l = FifoUnused(fifo);
+    if (len > l)
+        len = l;
+
+    FifoCopyIn(fifo, buf, len, fifo->in);
+    fifo->in += len;
+    return len;
+}
+
+static void FifoCopyOut(struct Fifo *fifo, void *dst, unsigned int len, unsigned int off)
+{
+    unsigned int size = fifo->mask + 1;
+    unsigned int esize = fifo->esize;
+    unsigned int l;
+
+    off &= fifo->mask;
+    if (esize != 1) {
+        off *= esize;
+        size *= esize;
+        len *= esize;
+    }
+    l = min(len, size - off);
+
+    memcpy((unsigned char *)dst, (unsigned char *)fifo->data + off, l);
+    memcpy((unsigned char *)dst + l, (unsigned char *)fifo->data, len - l);
+}
+
+/* 读取队列的值，不会取出队列 */
+unsigned int FifoOutPeek(struct Fifo *fifo, void *buf, unsigned int len)
+{
+    unsigned int l;
+
+    l = fifo->in - fifo->out; /* 队列元素个数 */
+    if (len > l) /* 读取的元素个数校验 */
+        len = l;
+
+    FifoCopyOut(fifo, buf, len, fifo->out);
+    return len;
+}
+
+unsigned int FifoOut(struct Fifo *fifo, void *buf, unsigned int len)
+{
+    len = FifoOutPeek(fifo, buf, len);
+    fifo->out += len;
+    return len;
+}
+
+/* 取队列中已经使用的元素个数，不一定等于占用缓冲大小 */
+unsigned int FifoLen(struct Fifo *fifo)
+{
+    return(fifo->in - fifo->out);
+}
+
+bool FifoIsEmpty(struct Fifo *fifo)
+{
+    return (fifo->in == fifo->out);
+}
+
+/* 缓冲区的长度如果是n，逻辑地址空间则为0至n-1 ，读写指针相差n，则缓冲区为满 */
+bool FifoIsFull(struct Fifo *fifo)
+{
+    return (FifoLen(fifo) > fifo->mask); /* 写指针 == (读指针 异或 缓冲区长度) */
+}
+
+unsigned int GetFifoSize(struct Fifo *fifo)
+{
+    return (fifo->mask + 1) * (fifo->esize);
+}
+
+unsigned int GetFreeSize(struct Fifo *fifo)
+{
+    return (GetFifoSize(fifo) - (FifoLen(fifo) * fifo->esize));
+}

@@ -32,7 +32,7 @@ static rt_uint8_t thread5_stack[512];
 #define TASK5_PRIORITY          25
 #define TASK1_TICK_PER_SECOND   5
 #define TASK2_TICK_PER_SECOND   5
-#define TASK3_TICK_PER_SECOND   5
+#define TASK3_TICK_PER_SECOND   10
 #define TASK4_TICK_PER_SECOND   5
 #define TASK5_TICK_PER_SECOND   5
 
