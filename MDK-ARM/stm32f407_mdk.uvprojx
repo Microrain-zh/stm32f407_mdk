@@ -673,6 +673,31 @@
               <FileType>1</FileType>
               <FilePath>..\package\customized\Src\fifo.c</FilePath>
             </File>
+            <File>
+              <FileName>task1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\task1.c</FilePath>
+            </File>
+            <File>
+              <FileName>task2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\task2.c</FilePath>
+            </File>
+            <File>
+              <FileName>task3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\task3.c</FilePath>
+            </File>
+            <File>
+              <FileName>task4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\task4.c</FilePath>
+            </File>
+            <File>
+              <FileName>task5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\Src\task5.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

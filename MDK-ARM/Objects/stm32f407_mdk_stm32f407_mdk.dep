@@ -140,7 +140,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x62F90DCB
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x62F90DCB)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x62F90DCB)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x62F90DCB)
-F (../Core/Src/stm32f4xx_it.c)(0x63E70DFA)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\stm32f4xx_it.o --depend .\objects\stm32f4xx_it.d)
+F (../Core/Src/stm32f4xx_it.c)(0x63EB8FFB)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\stm32f4xx_it.o --depend .\objects\stm32f4xx_it.d)
 I (../Core/Inc/main.h)(0x63DE04CF)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x62F90DCB)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x63DE205E)
@@ -1046,7 +1046,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x62F90DCB
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x62F90DCB)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x62F90DCB)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x62F90DCB)
-F (..\package\customized\Src\task.c)(0x63E8DA87)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\task.o --depend .\objects\task.d)
+F (..\package\customized\Src\task.c)(0x63EB8B10)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\task.o --depend .\objects\task.d)
 I (..\package\customized\Inc\task.h)(0x63E7087A)
 I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (..\RT-Thread\include\rtthread.h)(0x637E23A7)
@@ -1062,7 +1062,11 @@ I (..\RT-Thread\include\rtservice.h)(0x637E23A7)
 I (..\RT-Thread\include\rtm.h)(0x637E23A7)
 I (..\package\customized\Inc\sys_cfg.h)(0x63E79888)
 I (..\package\customized\Inc\tmr.h)(0x63E8B943)
-I (..\package\customized\Inc\key_detect.h)(0x63E784FF)
+I (..\package\customized\Inc\task1.h)(0x63EB8CDA)
+I (..\package\customized\Inc\task2.h)(0x63EB8CDA)
+I (..\package\customized\Inc\task3.h)(0x63EB8CDA)
+I (..\package\customized\Inc\task4.h)(0x63EB8CDA)
+I (..\package\customized\Inc\task5.h)(0x63EB8CDA)
 F (..\package\customized\Src\tmr.c)(0x63DD1461)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\tmr.o --depend .\objects\tmr.d)
 I (..\package\customized\Inc\tmr.h)(0x63E8B943)
 I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E2EB2)
@@ -1133,3 +1137,79 @@ I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E2EB2)
 I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E2EB2)
 I (..\package\customized\Inc\fifo.h)(0x63E8D441)
 I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
+F (..\package\customized\Src\task1.c)(0x63EB8B10)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\task1.o --depend .\objects\task1.d)
+I (..\package\customized\Inc\task1.h)(0x63EB8CDA)
+I (..\RT-Thread\include\rtthread.h)(0x637E23A7)
+I (..\RT-Thread\rtconfig.h)(0x63E6688A)
+I (..\RT-Thread\include\rtdebug.h)(0x637E23A7)
+I (..\RT-Thread\include\rtdef.h)(0x637E23A7)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
+I (..\RT-Thread\sys/types.h)(0x637E23A1)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\time.h)(0x5E8E2EB2)
+I (..\RT-Thread\include\rtservice.h)(0x637E23A7)
+I (..\RT-Thread\include\rtm.h)(0x637E23A7)
+I (..\package\customized\Inc\sys_cfg.h)(0x63E79888)
+I (..\package\customized\Inc\tmr.h)(0x63E8B943)
+F (..\package\customized\Src\task2.c)(0x63EB8B10)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\task2.o --depend .\objects\task2.d)
+I (..\package\customized\Inc\task2.h)(0x63EB8CDA)
+I (..\RT-Thread\include\rtthread.h)(0x637E23A7)
+I (..\RT-Thread\rtconfig.h)(0x63E6688A)
+I (..\RT-Thread\include\rtdebug.h)(0x637E23A7)
+I (..\RT-Thread\include\rtdef.h)(0x637E23A7)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
+I (..\RT-Thread\sys/types.h)(0x637E23A1)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\time.h)(0x5E8E2EB2)
+I (..\RT-Thread\include\rtservice.h)(0x637E23A7)
+I (..\RT-Thread\include\rtm.h)(0x637E23A7)
+I (..\package\customized\Inc\sys_cfg.h)(0x63E79888)
+I (..\package\customized\Inc\tmr.h)(0x63E8B943)
+F (..\package\customized\Src\task3.c)(0x63EB924D)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\task3.o --depend .\objects\task3.d)
+I (..\package\customized\Inc\task3.h)(0x63EB8CDA)
+I (..\RT-Thread\include\rtthread.h)(0x637E23A7)
+I (..\RT-Thread\rtconfig.h)(0x63E6688A)
+I (..\RT-Thread\include\rtdebug.h)(0x637E23A7)
+I (..\RT-Thread\include\rtdef.h)(0x637E23A7)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
+I (..\RT-Thread\sys/types.h)(0x637E23A1)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\time.h)(0x5E8E2EB2)
+I (..\RT-Thread\include\rtservice.h)(0x637E23A7)
+I (..\RT-Thread\include\rtm.h)(0x637E23A7)
+I (..\package\customized\Inc\sys_cfg.h)(0x63E79888)
+I (..\package\customized\Inc\tmr.h)(0x63E8B943)
+F (..\package\customized\Src\task4.c)(0x63EB8B10)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\task4.o --depend .\objects\task4.d)
+I (..\package\customized\Inc\task4.h)(0x63EB8CDA)
+I (..\RT-Thread\include\rtthread.h)(0x637E23A7)
+I (..\RT-Thread\rtconfig.h)(0x63E6688A)
+I (..\RT-Thread\include\rtdebug.h)(0x637E23A7)
+I (..\RT-Thread\include\rtdef.h)(0x637E23A7)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
+I (..\RT-Thread\sys/types.h)(0x637E23A1)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\time.h)(0x5E8E2EB2)
+I (..\RT-Thread\include\rtservice.h)(0x637E23A7)
+I (..\RT-Thread\include\rtm.h)(0x637E23A7)
+I (..\package\customized\Inc\sys_cfg.h)(0x63E79888)
+I (..\package\customized\Inc\tmr.h)(0x63E8B943)
+F (..\package\customized\Src\task5.c)(0x63EB8B10)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc-I.\RTE\_stm32f407_mdk-ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC-o .\objects\task5.o --depend .\objects\task5.d)
+I (..\package\customized\Inc\task5.h)(0x63EB8CDA)
+I (..\RT-Thread\include\rtthread.h)(0x637E23A7)
+I (..\RT-Thread\rtconfig.h)(0x63E6688A)
+I (..\RT-Thread\include\rtdebug.h)(0x637E23A7)
+I (..\RT-Thread\include\rtdef.h)(0x637E23A7)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E2EB2)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E2EB2)
+I (..\RT-Thread\sys/types.h)(0x637E23A1)
+I (D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\include\time.h)(0x5E8E2EB2)
+I (..\RT-Thread\include\rtservice.h)(0x637E23A7)
+I (..\RT-Thread\include\rtm.h)(0x637E23A7)
+I (..\package\customized\Inc\sys_cfg.h)(0x63E79888)
+I (..\package\customized\Inc\tmr.h)(0x63E8B943)
+I (..\package\customized\Inc\key_detect.h)(0x63E784FF)

@@ -192,6 +192,7 @@ void SysTick_Handler(void)
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
     rt_tick_increase();
+    rt_interrupt_leave();
   /* USER CODE END SysTick_IRQn 1 */
 }
 

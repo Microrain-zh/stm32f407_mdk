@@ -8,7 +8,11 @@
 #include "task.h"
 #include <rtthread.h>
 #include "sys_cfg.h"
-#include "key_detect.h"
+#include "task1.h"
+#include "task2.h"
+#include "task3.h"
+#include "task4.h"
+#include "task5.h"
 
 static struct rt_thread thread1;
 static rt_uint8_t thread1_stack[512];
@@ -35,57 +39,6 @@ static rt_uint8_t thread5_stack[512];
 #define TASK3_TICK_PER_SECOND   10
 #define TASK4_TICK_PER_SECOND   5
 #define TASK5_TICK_PER_SECOND   5
-
-void thread1_entry(void* parameter)
-{
-    Tmr1Init();
-
-    while (1) {
-        Tmr1Hanler();
-        rt_thread_delay(5);
-    }
-}
-
-void thread2_entry(void* parameter)
-{
-    Tmr2Init();
-
-    while (1) {
-        Tmr2Hanler();
-        rt_thread_delay(5);
-    }
-}
-
-void thread3_entry(void* parameter)
-{
-    Tmr3Init();
-
-    while (1) {
-        Tmr3Hanler();
-        rt_thread_delay(5);
-    }
-}
-
-void thread4_entry(void* parameter)
-{
-    Tmr4Init();
-
-    while (1) {
-        Tmr4Hanler();
-        rt_thread_delay(5);
-    }
-}
-
-void thread5_entry(void* parameter)
-{
-    Tmr5Init();
-    KeyDetectInit();
-
-    while (1) {
-        Tmr5Hanler();
-        rt_thread_delay(5);
-    }
-}
 
 /* 线程例程初始化 */
 static int thread_sample_init(void)
