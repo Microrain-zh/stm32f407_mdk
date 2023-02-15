@@ -68,7 +68,7 @@ typedef struct TagTmgr {
 
 /* TMR对象构造器 */
 #define TMR_CONSTRUCT(objName, callbackFunc) \
-        TmrRam objName##Ram = { \
+    static TmrRam objName##Ram = { \
         TMR_STATE_INACTIVE, TMR_TIMEOUT_TRIGGERED, TMR_TIMEOUT_CYCLE_SINGLE_SHOT, (HndTmr)NULL, (HndTmr)NULL}; \
     const struct TagTmr objName = {&objName##Ram, callbackFunc}
 
