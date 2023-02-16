@@ -8,13 +8,9 @@
 #include "task5.h"
 #include <rtthread.h>
 #include "sys_cfg.h"
-#include "key_detect.h"
 
 void thread5_entry(void* parameter)
 {
-    Tmr5Init();
-    KeyDetectInit();
-
     while (1) {
         Tmr5Hanler();
         rt_thread_delay(5);

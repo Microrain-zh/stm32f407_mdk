@@ -11,8 +11,6 @@
 
 void thread1_entry(void* parameter)
 {
-    Tmr1Init();
-
     while (1) {
         Tmr1Hanler();
         rt_thread_delay(5);

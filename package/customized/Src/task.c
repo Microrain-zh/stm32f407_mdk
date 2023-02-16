@@ -36,19 +36,19 @@ static rt_uint8_t thread5_stack[512];
 #define TASK5_PRIORITY          25
 #define TASK1_TICK_PER_SECOND   5
 #define TASK2_TICK_PER_SECOND   5
-#define TASK3_TICK_PER_SECOND   10
+#define TASK3_TICK_PER_SECOND   5
 #define TASK4_TICK_PER_SECOND   5
 #define TASK5_TICK_PER_SECOND   5
 
-/* Ïß³ÌÀı³Ì³õÊ¼»¯ */
+/* çº¿ç¨‹ä¾‹ç¨‹åˆå§‹åŒ– */
 static int thread_sample_init(void)
 {
      rt_err_t result;
 
-    /* ³õÊ¼»¯Ïß³Ì 1 */
-    /* Ïß³ÌµÄÈë¿ÚÊÇ thread1_entry£¬²ÎÊıÊÇ RT_NULL
-     * Ïß³ÌÕ»ÊÇ thread1_stack
-     * ÓÅÏÈ¼¶ÊÇ 200£¬Ê±¼äÆ¬ÊÇ 10 ¸ö OS Tick
+    /* åˆå§‹åŒ–çº¿ç¨‹ 1 */
+    /* çº¿ç¨‹çš„å…¥å£æ˜¯ thread1_entryï¼Œå‚æ•°æ˜¯ RT_NULL
+     * çº¿ç¨‹æ ˆæ˜¯ thread1_stack
+     * ä¼˜å…ˆçº§æ˜¯ 5ï¼Œæ—¶é—´ç‰‡æ˜¯ 5 ä¸ª OS Tick
      */
     result = rt_thread_init(&thread1, "thread1", thread1_entry, RT_NULL, &thread1_stack[0], sizeof(thread1_stack),
         TASK1_PRIORITY, TASK1_TICK_PER_SECOND);

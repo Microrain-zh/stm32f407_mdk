@@ -11,8 +11,6 @@
 
 void thread3_entry(void* parameter)
 {
-    Tmr3Init();
-
     while (1) {
         Tmr3Hanler();
         rt_thread_delay(10);

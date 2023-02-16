@@ -18,12 +18,6 @@ typedef enum {
     TIMER_TYPE_TASK5,
 } TaskTimerType;
 
-void Tmr1Init(void);
-void Tmr2Init(void);
-void Tmr3Init(void);
-void Tmr4Init(void);
-void Tmr5Init(void);
-
 void Tmr1Hanler(void);
 void Tmr2Hanler(void);
 void Tmr3Hanler(void);
@@ -31,5 +25,4 @@ void Tmr4Hanler(void);
 void Tmr5Hanler(void);
 
 HndTmgr OsApiGetTmrgrHnd(TaskTimerType type);
-
 #endif

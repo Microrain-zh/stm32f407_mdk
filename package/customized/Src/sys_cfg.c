@@ -7,6 +7,7 @@
 
 #include "sys_cfg.h"
 #include "rtthread.h"
+#include "key_detect.h"
 
 TMGR_CONSTRUCT(g_task1TmrTmgr);
 TMGR_CONSTRUCT(g_task2TmrTmgr);
@@ -16,7 +17,7 @@ TMGR_CONSTRUCT(g_task5TmrTmgr);
 
 #define TASK_CYCLE_TIME_TASK1 5
 #define TASK_CYCLE_TIME_TASK2 5
-#define TASK_CYCLE_TIME_TASK3 10
+#define TASK_CYCLE_TIME_TASK3 5
 #define TASK_CYCLE_TIME_TASK4 5
 #define TASK_CYCLE_TIME_TASK5 5
 
@@ -94,31 +95,31 @@ HndTmgr OsApiGetTmrgrHnd(TaskTimerType type)
     return tmgr;
 }
 
-void Tmr1Init(void)
+static void Tmr1Init(void)
 {
     TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK1));
     TmgrStartTimer(OsApiGetTmrgrHnd(TIMER_TYPE_TASK1), TMR_OBJ_HANDLE(g_task1Log), TASK_LOG_START_TIME, TASK_LOG_CYCLE_TIME);
 }
 
-void Tmr2Init(void)
+static void Tmr2Init(void)
 {
     TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK2));
     TmgrStartTimer(OsApiGetTmrgrHnd(TIMER_TYPE_TASK2), TMR_OBJ_HANDLE(g_task2Log), TASK_LOG_START_TIME, TASK_LOG_CYCLE_TIME);
 }
 
-void Tmr3Init(void)
+static void Tmr3Init(void)
 {
     TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK3));
     TmgrStartTimer(OsApiGetTmrgrHnd(TIMER_TYPE_TASK3), TMR_OBJ_HANDLE(g_task3Log), TASK_LOG_START_TIME, TASK_LOG_CYCLE_TIME);
 }
 
-void Tmr4Init(void)
+static void Tmr4Init(void)
 {
     TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK4));
     TmgrStartTimer(OsApiGetTmrgrHnd(TIMER_TYPE_TASK4), TMR_OBJ_HANDLE(g_task4Log), TASK_LOG_START_TIME, TASK_LOG_CYCLE_TIME);
 }
 
-void Tmr5Init(void)
+static void Tmr5Init(void)
 {
     TmgrInit(OsApiGetTmrgrHnd(TIMER_TYPE_TASK5));
     TmgrStartTimer(OsApiGetTmrgrHnd(TIMER_TYPE_TASK5), TMR_OBJ_HANDLE(g_task5Log), TASK_LOG_START_TIME, TASK_LOG_CYCLE_TIME);
@@ -147,3 +148,16 @@ void Tmr5Hanler(void)
 {
     TmgrHandleTick(TMGR_OBJ_HANDLE(g_task5TmrTmgr), TASK_CYCLE_TIME_TASK5);
 }
+
+static int TaskInit(void)
+{
+    Tmr1Init();
+    Tmr2Init();
+    Tmr3Init();
+    Tmr4Init();
+    Tmr5Init();
+    KeyDetectInit();
+
+    return 0;
+}
+INIT_APP_EXPORT(TaskInit);
