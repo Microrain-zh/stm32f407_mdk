@@ -215,7 +215,7 @@ void rt_application_init(void)
 
     tid = &main_thread;
     result = rt_thread_init(tid, "main", main_thread_entry, RT_NULL,
-                            main_thread_stack, sizeof(main_thread_stack), RT_MAIN_THREAD_PRIORITY, 20);
+                            main_thread_stack, sizeof(main_thread_stack), RT_MAIN_THREAD_PRIORITY, 5);
     RT_ASSERT(result == RT_EOK);
 
     /* if not define RT_USING_HEAP, using to eliminate the warning */

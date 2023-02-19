@@ -1,4 +1,4 @@
-SET PATH=D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin;D:\software\install\VMware-workstation\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\software\install\git\Git\cmd;D:\software\install\TortoiseGit\bin;D:\software\install\VSCode\Microsoft VS Code\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\wangfeitao\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\MinGW\msys\1.0\bin
+SET PATH=D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin;D:\software\install\VMware-workstation\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\software\install\git\Git\cmd;D:\software\install\TortoiseGit\bin;D:\software\install\VSCode\Microsoft VS Code\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\wangfeitao\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\MinGW\msys\1.0\bin;
 SET CPU_TYPE=STM32F407ZGTx
 SET CPU_VENDOR=STMicroelectronics
 SET UV2_TARGET=stm32f407_mdk
@@ -60,6 +60,11 @@ SET CPU_CLOCK=0x007A1200
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\task3.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\task4.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\task5.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\elog.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\elog_utils.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\elog_async.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\elog_buf.__i"
+"D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\objects\elog_port.__i"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via ".\Objects\f407.lnp"
 "D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin\fromelf.exe" ".\Objects\f407.axf" --i32combined --output ".\Objects\f407.hex"
 D:\software\install\MDK-ARM\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin -o ./Objects/f407.bin ./Objects/f407.axf"

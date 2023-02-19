@@ -8,6 +8,7 @@
 #include "sys_cfg.h"
 #include "rtthread.h"
 #include "key_detect.h"
+#include "elog.h"
 
 TMGR_CONSTRUCT(g_task1TmrTmgr);
 TMGR_CONSTRUCT(g_task2TmrTmgr);
@@ -17,7 +18,7 @@ TMGR_CONSTRUCT(g_task5TmrTmgr);
 
 #define TASK_CYCLE_TIME_TASK1 5
 #define TASK_CYCLE_TIME_TASK2 5
-#define TASK_CYCLE_TIME_TASK3 5
+#define TASK_CYCLE_TIME_TASK3 10
 #define TASK_CYCLE_TIME_TASK4 5
 #define TASK_CYCLE_TIME_TASK5 5
 
@@ -41,31 +42,31 @@ TMR_CONSTRUCT(g_task5Log, TMR_CALLBACK_FUNC_REF(Task5Log));
 
 TMR_CALLBACK_FUNC(Task1Log)
 {
-    rt_kprintf("task1\r\n");
+    elog_info(SYSTEM, "task1\r\n");
 }
 
 TMR_CALLBACK_FUNC(Task2Log)
 {
     /* handle */
-    rt_kprintf("task2\r\n");
+    elog_info(SYSTEM, "task2\r\n");
 }
 
 TMR_CALLBACK_FUNC(Task3Log)
 {
     /* handle */
-    rt_kprintf("task3\r\n");
+    elog_info(SYSTEM, "task3\r\n");
 }
 
 TMR_CALLBACK_FUNC(Task4Log)
 {
     /* handle */
-    rt_kprintf("task4\r\n");
+    elog_info(SYSTEM, "task4\r\n");
 }
 
 TMR_CALLBACK_FUNC(Task5Log)
 {
     /* handle */
-    rt_kprintf("task5\r\n");
+    elog_info(SYSTEM, "task5\r\n");
 }
 
 HndTmgr OsApiGetTmrgrHnd(TaskTimerType type)
@@ -161,3 +162,4 @@ static int TaskInit(void)
     return 0;
 }
 INIT_APP_EXPORT(TaskInit);
+

@@ -11,6 +11,7 @@
 #include "main.h"
 #include "tmr.h"
 #include "sys_cfg.h"
+#include "elog.h"
 
 #define KEY_DETECT_START_TIME 5
 #define KEY_DETECT_CYCLE_TIME 5
@@ -51,7 +52,7 @@ static uint8_t ReadButtonGPIO(uint8_t buttonId)
         case KEY_UP:
             return HAL_GPIO_ReadPin(KEY_UP_GPIO_Port, KEY_UP_Pin);
         default:
-            rt_kprintf("key id out of range %u\r\n", buttonId);
+            elog_info(BUTTON, "key id out of range %u\r\n", buttonId);
             return 0;
     }
 }
@@ -61,9 +62,9 @@ static void KeyPressDownHandler(void *handle)
     uint8_t keyId = ((Button *)handle)->button_id;
 
     if (keyId >= KEY_MAX) {
-        rt_kprintf("key id %u press down invalid\r\n", keyId);
+        elog_info(BUTTON, "key id %u press down invalid\r\n", keyId);
     } else {
-        rt_kprintf("key id %u press down\r\n", keyId);
+        elog_info(BUTTON, "key id %u press down\r\n", keyId);
     }
 }
 
@@ -72,9 +73,9 @@ static void KeyPressUpHandler(void *handle)
     uint8_t keyId = ((Button *)handle)->button_id;
 
     if (keyId >= KEY_MAX) {
-        rt_kprintf("key id %u press up invalid\r\n", keyId);
+        elog_info(BUTTON, "key id %u press up invalid\r\n", keyId);
     } else {
-        rt_kprintf("key id %u press up\r\n", keyId);
+        elog_info(BUTTON, "key id %u press up\r\n", keyId);
     }
 }
 
@@ -83,9 +84,9 @@ static void KeyPressRepeatHandler(void *handle)
     uint8_t keyId = ((Button *)handle)->button_id;
 
     if (keyId >= KEY_MAX) {
-        rt_kprintf("key id %u press repeat invalid\r\n", keyId);
+        elog_info(BUTTON, "key id %u press repeat invalid\r\n", keyId);
     } else {
-        rt_kprintf("key id %u press repeat\r\n", keyId);
+        elog_info(BUTTON, "key id %u press repeat\r\n", keyId);
     }
 }
 
@@ -94,9 +95,9 @@ static void KeySingleClickHandler(void *handle)
     uint8_t keyId = ((Button *)handle)->button_id;
 
     if (keyId >= KEY_MAX) {
-        rt_kprintf("key id %u signal click invalid\r\n", keyId);
+        elog_info(BUTTON, "key id %u signal click invalid\r\n", keyId);
     } else {
-        rt_kprintf("key id %u signal click\r\n", keyId);
+        elog_info(BUTTON, "key id %u signal click\r\n", keyId);
     }
 }
 
@@ -105,9 +106,9 @@ static void KeyDoubleClickHandler(void *handle)
     uint8_t keyId = ((Button *)handle)->button_id;
 
     if (keyId >= KEY_MAX) {
-        rt_kprintf("key id %u double click invalid\r\n", keyId);
+        elog_info(BUTTON, "key id %u double click invalid\r\n", keyId);
     } else {
-        rt_kprintf("key id %u double click\r\n", keyId);
+        elog_info(BUTTON, "key id %u double click\r\n", keyId);
     }
 }
 
@@ -116,9 +117,9 @@ static void KeyLongPressStartHandler(void *handle)
     uint8_t keyId = ((Button *)handle)->button_id;
 
     if (keyId >= KEY_MAX) {
-        rt_kprintf("key id %u long press start invalid\r\n", keyId);
+        elog_info(BUTTON, "key id %u long press start invalid\r\n", keyId);
     } else {
-        rt_kprintf("key id %u long press start\r\n", keyId);
+        elog_info(BUTTON, "key id %u long press start\r\n", keyId);
     }
 }
 
@@ -127,9 +128,9 @@ static void KeyLongPressHoldHandler(void *handle)
     uint8_t keyId = ((Button *)handle)->button_id;
 
     if (keyId >= KEY_MAX) {
-        rt_kprintf("key id %u long press hold invalid\r\n", keyId);
+        elog_info(BUTTON, "key id %u long press hold invalid\r\n", keyId);
     } else {
-        rt_kprintf("key id %u long press hold\r\n", keyId);
+        elog_info(BUTTON, "key id %u long press hold\r\n", keyId);
     }
 }
 

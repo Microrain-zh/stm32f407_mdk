@@ -13,6 +13,7 @@
 #include "task3.h"
 #include "task4.h"
 #include "task5.h"
+#include "elog.h"
 
 static struct rt_thread thread1;
 static rt_uint8_t thread1_stack[512];
@@ -55,7 +56,7 @@ static int thread_sample_init(void)
     if (result == RT_EOK) {
         rt_thread_startup(&thread1);
     } else {
-        rt_kprintf("thread1 init fail %u\r\n", result);
+        elog_info(SYSTEM, "thread1 init fail %u\r\n", result);
     }
 
     result = rt_thread_init(&thread2, "thread2", thread2_entry, RT_NULL, &thread2_stack[0], sizeof(thread2_stack),
@@ -63,7 +64,7 @@ static int thread_sample_init(void)
     if (result == RT_EOK) {
         rt_thread_startup(&thread2);
     } else {
-        rt_kprintf("thread2 init fail %u\r\n", result);
+        elog_info(SYSTEM, "thread2 init fail %u\r\n", result);
     }
 
     result = rt_thread_init(&thread3, "thread3", thread3_entry, RT_NULL, &thread3_stack[0], sizeof(thread3_stack),
@@ -71,7 +72,7 @@ static int thread_sample_init(void)
     if (result == RT_EOK) {
         rt_thread_startup(&thread3);
     } else {
-        rt_kprintf("thread3 init fail %u\r\n", result);
+        elog_info(SYSTEM, "thread3 init fail %u\r\n", result);
     }
 
     result = rt_thread_init(&thread4, "thread4", thread4_entry, RT_NULL, &thread4_stack[0], sizeof(thread4_stack),
@@ -79,7 +80,7 @@ static int thread_sample_init(void)
     if (result == RT_EOK) {
         rt_thread_startup(&thread4);
     } else {
-        rt_kprintf("thread4 init fail %u\r\n", result);
+        elog_info(SYSTEM, "thread4 init fail %u\r\n", result);
     }
 
     result = rt_thread_init(&thread5, "thread5", thread5_entry, RT_NULL, &thread5_stack[0], sizeof(thread5_stack),
@@ -87,7 +88,7 @@ static int thread_sample_init(void)
     if (result == RT_EOK) {
         rt_thread_startup(&thread5);
     } else {
-        rt_kprintf("thread5 init fail %u\r\n", result);
+        elog_info(SYSTEM, "thread5 init fail %u\r\n", result);
     }
 
     return 0;

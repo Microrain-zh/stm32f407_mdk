@@ -1,6 +1,6 @@
---c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc
+--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\RT-Thread\include -I ..\RT-Thread -I ..\RT-Thread\sys -I ..\package\customized\Inc -I ..\package\platform\inc
 -I.\RTE\_stm32f407_mdk
 -ID:\software\install\MDK-ARM\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
 -ID:\software\install\MDK-ARM\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 -D__UVISION_VERSION="533" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DRT_USING_LIBC -DRT_USING_ARM_LIBC
--o .\objects\scheduler.o --depend .\objects\scheduler.d "..\RT-Thread\src\scheduler.c"
+-o .\objects\scheduler.o --omf_browse .\objects\scheduler.crf --depend .\objects\scheduler.d "..\RT-Thread\src\scheduler.c"

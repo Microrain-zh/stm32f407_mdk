@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
 D:\github\stm32f4\stm32f407_mdk\MDK-ARM\stm32f407_mdk.uvprojx
-Project File Date:  02/16/2023
+Project File Date:  02/17/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin'
@@ -94,11 +94,23 @@ compiling task2.c...
 compiling task3.c...
 compiling task4.c...
 compiling task5.c...
+compiling elog.c...
+compiling elog_utils.c...
+compiling elog_async.c...
+compiling elog_buf.c...
+compiling elog_port.c...
+..\package\platform\port\elog_port.c(107): warning:  #940-D: missing return statement at end of non-void function "elog_port_get_p_info" 
+  }
+..\package\platform\port\elog_port.c(118): warning:  #1-D: last line of file ends without a newline
+  }
+..\package\platform\port\elog_port.c(118): warning:  #940-D: missing return statement at end of non-void function "elog_port_get_t_info" 
+  }
+..\package\platform\port\elog_port.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=19876 RO-data=836 RW-data=192 ZI-data=20264  
+Program Size: Code=27316 RO-data=1384 RW-data=220 ZI-data=21436  
 FromELF: creating hex file...
 After Build - User command #1: D:\software\install\MDK-ARM\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin -o ./Objects/f407.bin ./Objects/f407.axf"
-".\Objects\f407.axf" - 0 Error(s), 4 Warning(s).
+".\Objects\f407.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -122,7 +134,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.4.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:12
+Build Time Elapsed:  00:00:47
 </pre>
 </body>
 </html>

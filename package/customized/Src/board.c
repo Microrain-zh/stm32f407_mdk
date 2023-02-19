@@ -14,6 +14,7 @@
 #include "rtconfig.h"
 #include "task.h"
 #include "dev_uart.h"
+#include "elog.h"
 
 void  OsSysTickInit (void)
 {
@@ -21,7 +22,7 @@ void  OsSysTickInit (void)
     HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
-/* Ê¹ÓÃmicroLibµÄ·½·¨ */
+/* ä½¿ç”¨microLibçš„æ–¹æ³• */
 int fputc(int ch, FILE *f)
 {
     HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFF);
@@ -83,5 +84,12 @@ void rt_hw_board_init(void)
     MX_USART2_UART_Init();
     OsSysTickInit();
     uart_device_init(DEV_UART2);
+    elog_init();
+    elog_set_fmt(ELOG_LVL_ASSERT, ELOG_FMT_ALL);
+    elog_set_fmt(ELOG_LVL_ERROR, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
+    elog_set_fmt(ELOG_LVL_WARN, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
+    elog_set_fmt(ELOG_LVL_INFO, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);
+    elog_set_fmt(ELOG_LVL_DEBUG, ELOG_FMT_ALL & ~(ELOG_FMT_FUNC | ELOG_FMT_T_INFO | ELOG_FMT_P_INFO));
+    elog_set_fmt(ELOG_LVL_VERBOSE, ELOG_FMT_ALL & ~(ELOG_FMT_FUNC | ELOG_FMT_T_INFO | ELOG_FMT_P_INFO));
+    elog_start();
 }
-
