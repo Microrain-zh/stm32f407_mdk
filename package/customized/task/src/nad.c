@@ -10,6 +10,7 @@
 #include "sys_cfg.h"
 #include "sys_api.h"
 #include "elog.h"
+#include "task.h"
 
 #define NAD_START_TIME 5
 #define NAD_CYCLE_TIME 5
@@ -28,8 +29,11 @@ void thread2_entry(void *parameter)
     SysApiTaskInitById(NAD_TASK_ID);
 
     for (; ;) {
-        RteRunnableTask2();
-        rt_thread_delay(5);
+        rt_uint32_t e;
+        if (rt_event_recv(g_thread2Event, TASK2_EVENT_MASK, RT_EVENT_FLAG_AND | RT_EVENT_FLAG_CLEAR, RT_WAITING_NO, &e) !=
+            RT_EOK) {
+            RteRunnableTask2();
+        }
     }
 }
 

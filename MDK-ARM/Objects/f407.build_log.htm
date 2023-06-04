@@ -71,15 +71,9 @@ compiling cpu.c...
 compiling device.c...
 compiling idle.c...
 compiling ipc.c...
-..\RT-Thread\src\ipc.c(86): warning:  #177-D: function "_ipc_object_init"  was declared but never referenced
-  rt_inline rt_err_t _ipc_object_init(struct rt_ipc_object *ipc)
-..\RT-Thread\src\ipc.c(124): warning:  #177-D: function "_ipc_list_suspend"  was declared but never referenced
-  rt_inline rt_err_t _ipc_list_suspend(rt_list_t        *list,
 ..\RT-Thread\src\ipc.c(193): warning:  #177-D: function "_ipc_list_resume"  was declared but never referenced
   rt_inline rt_err_t _ipc_list_resume(rt_list_t *list)
-..\RT-Thread\src\ipc.c(222): warning:  #177-D: function "_ipc_list_resume_all"  was declared but never referenced
-  rt_inline rt_err_t _ipc_list_resume_all(rt_list_t *list)
-..\RT-Thread\src\ipc.c: 4 warnings, 0 errors
+..\RT-Thread\src\ipc.c: 1 warning, 0 errors
 compiling irq.c...
 compiling kservice.c...
 compiling mem.c...
@@ -120,10 +114,10 @@ compiling elog_port.c...
   }
 ..\package\platform\framework\log\port\elog_port.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=23988 RO-data=1308 RW-data=236 ZI-data=23820  
+Program Size: Code=25412 RO-data=1308 RW-data=272 ZI-data=25920  
 FromELF: creating hex file...
 After Build - User command #1: D:\software\install\MDK-ARM\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin -o ./Objects/f407.bin ./Objects/f407.axf"
-".\Objects\f407.axf" - 0 Error(s), 6 Warning(s).
+".\Objects\f407.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -147,7 +141,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.4.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:55
+Build Time Elapsed:  00:01:00
 </pre>
 </body>
 </html>

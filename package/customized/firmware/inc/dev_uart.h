@@ -5,8 +5,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define DEV_UART2	0
-#define DEV_UART1	1
+#define DEV_UART2 0
+#define DEV_UART1 1
 
 void uart_device_init(uint8_t uart_id);
 uint16_t uart_write(uint8_t uart_id, const uint8_t *buf, uint16_t size);

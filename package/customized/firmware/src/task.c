@@ -6,7 +6,6 @@
  */
 
 #include "task.h"
-#include <rtthread.h>
 #include "sys_cfg.h"
 #include "sys_api.h"
 #include "system.h"
@@ -42,6 +41,44 @@ static rt_uint8_t thread5_stack[512];
 #define TASK3_TICK_PER_SECOND   5
 #define TASK4_TICK_PER_SECOND   5
 #define TASK5_TICK_PER_SECOND   5
+
+
+rt_event_t g_thread1Event;
+rt_event_t g_thread2Event;
+rt_event_t g_thread3Event;
+rt_event_t g_thread4Event;
+rt_event_t g_thread5Event;
+
+static void TaskEventInit(void)
+{
+    rt_err_t ret;
+
+    ret = rt_event_init(g_thread1Event, "task1Mask", RT_IPC_FLAG_PRIO);
+    if (ret != RT_EOK) {
+        rt_kprintf("task1 init event failed %u\r\n", ret);
+    }
+
+    ret = rt_event_init(g_thread2Event, "task2Mask", RT_IPC_FLAG_PRIO);
+    if (ret != RT_EOK) {
+        rt_kprintf("task2 init event failed\r\n", ret);
+    }
+
+    ret = rt_event_init(g_thread3Event, "task3Mask", RT_IPC_FLAG_PRIO);
+    if (ret != RT_EOK) {
+        rt_kprintf("task3 init event failed\r\n", ret);
+    }
+
+    ret = rt_event_init(g_thread4Event, "task4Mask", RT_IPC_FLAG_PRIO);
+    if (ret != RT_EOK) {
+        rt_kprintf("task4 init event failed\r\n", ret);
+    }
+
+    ret = rt_event_init(g_thread5Event, "task5Mask", RT_IPC_FLAG_PRIO);
+    if (ret != RT_EOK) {
+        rt_kprintf("task5 init event failed\r\n", ret);
+    }
+}
+
 
 /* 线程例程初始化 */
 static int thread_sample_init(void)
@@ -92,6 +129,8 @@ static int thread_sample_init(void)
     } else {
         rt_kprintf(SYSTEM, "thread5 init fail %u\r\n", result);
     }
+
+    TaskEventInit();
 
     return 0;
 }

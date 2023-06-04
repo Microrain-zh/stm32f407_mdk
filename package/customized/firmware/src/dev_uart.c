@@ -75,7 +75,7 @@ void uart_device_init(uint8_t uart_id)
     {
         /* 配置串口1收发fifo */
         FifoInit(&s_uart_dev[uart_id].tx_fifo, &s_uart1_tx_buf[0], 
-                      sizeof(s_uart1_tx_buf),sizeof(uint8_t), NULL, NULL);
+                      sizeof(s_uart1_tx_buf),sizeof(uint8_t), fifo_lock, fifo_unlock);
         FifoInit(&s_uart_dev[uart_id].rx_fifo, &s_uart1_rx_buf[0], 
                       sizeof(s_uart1_rx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
         

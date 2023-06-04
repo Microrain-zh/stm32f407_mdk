@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "rtthread.h"
+#include "task.h"
 #include "dev_uart.h"
 /* USER CODE END Includes */
 
@@ -192,6 +193,13 @@ void SysTick_Handler(void)
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
     rt_tick_increase();
+    if (HAL_GetTick() / 5 == 0) {
+      rt_event_send(g_thread1Event, TASK1_EVENT_MASK);
+      rt_event_send(g_thread2Event, TASK2_EVENT_MASK);
+      rt_event_send(g_thread3Event, TASK3_EVENT_MASK);
+      rt_event_send(g_thread4Event, TASK4_EVENT_MASK);
+      rt_event_send(g_thread5Event, TASK5_EVENT_MASK);
+    }
     rt_interrupt_leave();
   /* USER CODE END SysTick_IRQn 1 */
 }

@@ -10,6 +10,7 @@
 #include "sys_cfg.h"
 #include "sys_api.h"
 #include "elog.h"
+#include "task.h"
 
 #define CAN_START_TIME 5
 #define CAN_CYCLE_TIME 5
@@ -28,13 +29,12 @@ void thread3_entry(void *  parameter)
     SysApiTaskInitById(CAN_TASK_ID);
 
     for (; ;) {
-        RteRunnableTask3();
-        rt_thread_delay(5);
+        rt_uint32_t e;
+        if (rt_event_recv(g_thread3Event, TASK3_EVENT_MASK, RT_EVENT_FLAG_AND | RT_EVENT_FLAG_CLEAR, RT_WAITING_NO, &e) !=
+            RT_EOK) {
+            RteRunnableTask3();
+        }
     }
-    // while (1) {
-    //     Tmr3Hanler();
-    //     rt_thread_delay(10);
-    // }
 }
 
 void CanTaskInit(void)

@@ -110,6 +110,7 @@ static void FifoCopyOut(struct Fifo *fifo, void *dst, unsigned int len, unsigned
     unsigned int esize = fifo->esize;
     unsigned int l;
 
+    fifo->lock();
     off &= fifo->mask;
     if (esize != 1) {
         off *= esize;
@@ -120,6 +121,7 @@ static void FifoCopyOut(struct Fifo *fifo, void *dst, unsigned int len, unsigned
 
     memcpy((unsigned char *)dst, (unsigned char *)fifo->data + off, l);
     memcpy((unsigned char *)dst + l, (unsigned char *)fifo->data, len - l);
+    fifo->unlock();
 }
 
 /* 读取队列的值，不会取出队列 */

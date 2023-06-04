@@ -10,14 +10,18 @@
 #include "sys_cfg.h"
 #include "sys_api.h"
 #include "key_detect.h"
+#include "task.h"
 
 void thread4_entry(void *parameter)
 {
     SysApiTaskInitById(PLATFORM_TASK_ID);
 
     for (; ;) {
-        RteRunnableTask4();
-        rt_thread_delay(5);
+        rt_uint32_t e;
+        if (rt_event_recv(g_thread4Event, TASK4_EVENT_MASK, RT_EVENT_FLAG_AND | RT_EVENT_FLAG_CLEAR, RT_WAITING_NO, &e) !=
+            RT_EOK) {
+            RteRunnableTask4();
+        }
     }
 }
 
