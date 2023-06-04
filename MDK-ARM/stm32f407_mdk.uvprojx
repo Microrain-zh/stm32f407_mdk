@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,RT_USING_LIBC,RT_USING_ARM_LIBC</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\RT-Thread\include;..\RT-Thread;..\RT-Thread\sys;..\package\customized\Inc;..\package\platform\inc</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\RT-Thread\include;..\RT-Thread;..\RT-Thread\sys;..\package\customized\Inc;..\package\platform\inc;..\package\customized\firmware\inc;..\package\customized\source\detect;..\package\customized\source\log;..\package\customized\task\inc;..\package\platform\framework\fifo;..\package\platform\framework\log\inc;..\package\platform\framework\sys_api;..\package\platform\framework\sys_cfg;..\package\platform\framework\tmr</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -626,115 +626,167 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>package/customized/Src</GroupName>
+          <GroupName>package/customized/source/detect</GroupName>
           <Files>
             <File>
-              <FileName>board.c</FileName>
+              <FileName>key_detect.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\board.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\bsp_uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>dev_uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\dev_uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\task.c</FilePath>
-            </File>
-            <File>
-              <FileName>tmr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\tmr.c</FilePath>
-            </File>
-            <File>
-              <FileName>sys_cfg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\sys_cfg.c</FilePath>
+              <FilePath>..\package\customized\source\detect\key_detect.c</FilePath>
             </File>
             <File>
               <FileName>multi_button.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\multi_button.c</FilePath>
-            </File>
-            <File>
-              <FileName>key_detect.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\key_detect.c</FilePath>
-            </File>
-            <File>
-              <FileName>fifo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\fifo.c</FilePath>
-            </File>
-            <File>
-              <FileName>task1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\task1.c</FilePath>
-            </File>
-            <File>
-              <FileName>task2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\task2.c</FilePath>
-            </File>
-            <File>
-              <FileName>task3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\task3.c</FilePath>
-            </File>
-            <File>
-              <FileName>task4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\task4.c</FilePath>
-            </File>
-            <File>
-              <FileName>task5.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\customized\Src\task5.c</FilePath>
+              <FilePath>..\package\customized\source\detect\multi_button.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>package/platform/src</GroupName>
+          <GroupName>package/customized/source/log</GroupName>
+          <Files>
+            <File>
+              <FileName>log_output.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\source\log\log_output.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>package/customized/source/task</GroupName>
+          <Files>
+            <File>
+              <FileName>can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\task\src\can.c</FilePath>
+            </File>
+            <File>
+              <FileName>custom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\task\src\custom.c</FilePath>
+            </File>
+            <File>
+              <FileName>nad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\task\src\nad.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\task\src\platform.c</FilePath>
+            </File>
+            <File>
+              <FileName>system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\task\src\system.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>package/customized/firrmware/src</GroupName>
+          <Files>
+            <File>
+              <FileName>board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\firmware\src\board.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\firmware\src\bsp_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>dev_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\firmware\src\dev_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\customized\firmware\src\task.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>package/platform/framework/fifo</GroupName>
+          <Files>
+            <File>
+              <FileName>fifo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\platform\framework\fifo\fifo.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>package/platform/framework/sys_api</GroupName>
+          <Files>
+            <File>
+              <FileName>sys_api.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\platform\framework\sys_api\sys_api.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys_api.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\package\platform\framework\sys_api\sys_api.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>package/platform/framework/sys_cfg</GroupName>
+          <Files>
+            <File>
+              <FileName>sys_cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\platform\framework\sys_cfg\sys_cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\package\platform\framework\sys_cfg\sys_cfg.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>package/platform/framework/tmr</GroupName>
+          <Files>
+            <File>
+              <FileName>tmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\platform\framework\tmr\tmr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>package/platform/framework/log/src</GroupName>
           <Files>
             <File>
               <FileName>elog.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\package\platform\src\elog.c</FilePath>
-            </File>
-            <File>
-              <FileName>elog_utils.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\package\platform\src\elog_utils.c</FilePath>
+              <FilePath>..\package\platform\framework\log\src\elog.c</FilePath>
             </File>
             <File>
               <FileName>elog_async.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\package\platform\src\elog_async.c</FilePath>
+              <FilePath>..\package\platform\framework\log\src\elog_async.c</FilePath>
             </File>
             <File>
               <FileName>elog_buf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\package\platform\src\elog_buf.c</FilePath>
+              <FilePath>..\package\platform\framework\log\src\elog_buf.c</FilePath>
+            </File>
+            <File>
+              <FileName>elog_utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\package\platform\framework\log\src\elog_utils.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>package/platform/inc</GroupName>
-        </Group>
-        <Group>
-          <GroupName>package/platform/port</GroupName>
+          <GroupName>package/platform/framework/log/port</GroupName>
           <Files>
             <File>
               <FileName>elog_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\package\platform\port\elog_port.c</FilePath>
+              <FilePath>..\package\platform\framework\log\port\elog_port.c</FilePath>
             </File>
           </Files>
         </Group>
