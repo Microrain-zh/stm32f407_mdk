@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "rtthread.h"
+#include "sys_cfg.h"
 #include "task.h"
 #include "dev_uart.h"
 /* USER CODE END Includes */
@@ -189,16 +190,17 @@ void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
     rt_interrupt_enter();
+    rt_err_t ret = 0;
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
     rt_tick_increase();
-    if (HAL_GetTick() / 5 == 0) {
-      rt_event_send(g_thread1Event, TASK1_EVENT_MASK);
-      rt_event_send(g_thread2Event, TASK2_EVENT_MASK);
-      rt_event_send(g_thread3Event, TASK3_EVENT_MASK);
-      rt_event_send(g_thread4Event, TASK4_EVENT_MASK);
-      rt_event_send(g_thread5Event, TASK5_EVENT_MASK);
+    if ((HAL_GetTick() % 5) == 0) {
+    ret = rt_event_send(GetTaskEventSetObj(SYSTEM_TASK_ID), TASK1_EVENT_MASK);
+//    ret = rt_event_send(GetTaskEventSetObj(NAD_TASK_ID), TASK2_EVENT_MASK);
+//    ret = rt_event_send(GetTaskEventSetObj(CAN_TASK_ID), TASK3_EVENT_MASK);
+//    ret = rt_event_send(GetTaskEventSetObj(PLATFORM_TASK_ID), TASK4_EVENT_MASK);
+//    ret = rt_event_send(GetTaskEventSetObj(CUSTOM_TASK_ID), TASK5_EVENT_MASK);
     }
     rt_interrupt_leave();
   /* USER CODE END SysTick_IRQn 1 */

@@ -21,16 +21,17 @@ TMR_CONSTRUCT(g_Can, TMR_CALLBACK_FUNC_REF(Can));
 TMR_CALLBACK_FUNC(Can)
 {
     /* handle */
-     elog_info(SYSTEM, "nad\r\n");
+     elog_info(SYSTEM, "can\r\n");
 }
 
-void thread3_entry(void *  parameter)
+void thread3_entry(void *parameter)
 {
     SysApiTaskInitById(CAN_TASK_ID);
 
     for (; ;) {
         rt_uint32_t e;
-        if (rt_event_recv(g_thread3Event, TASK3_EVENT_MASK, RT_EVENT_FLAG_AND | RT_EVENT_FLAG_CLEAR, RT_WAITING_NO, &e) !=
+        elog_info(SYSTEM, "can\r\n");
+        if (rt_event_recv(GetTaskEventSetObj(CAN_TASK_ID), TASK3_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
             RT_EOK) {
             RteRunnableTask3();
         }

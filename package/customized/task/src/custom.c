@@ -21,7 +21,7 @@ TMR_CONSTRUCT(g_Custom, TMR_CALLBACK_FUNC_REF(Custom));
 TMR_CALLBACK_FUNC(Custom)
 {
     /* handle */
-     elog_info(SYSTEM, "nad\r\n");
+     elog_info(SYSTEM, "custom\r\n");
 }
 
 void thread5_entry(void *parameter)
@@ -30,7 +30,8 @@ void thread5_entry(void *parameter)
 
     for (; ;) {
         rt_uint32_t e;
-        if (rt_event_recv(g_thread5Event, TASK5_EVENT_MASK, RT_EVENT_FLAG_AND | RT_EVENT_FLAG_CLEAR, RT_WAITING_NO, &e) !=
+        elog_info(SYSTEM, "custom\r\n");
+        if (rt_event_recv(GetTaskEventSetObj(CUSTOM_TASK_ID), TASK5_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
             RT_EOK) {
             RteRunnableTask5();
         }

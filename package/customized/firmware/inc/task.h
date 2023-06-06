@@ -17,11 +17,7 @@
 #define TASK4_EVENT_MASK 0x01
 #define TASK5_EVENT_MASK 0x01
 
-extern rt_event_t g_thread1Event;
-extern rt_event_t g_thread2Event;
-extern rt_event_t g_thread3Event;
-extern rt_event_t g_thread4Event;
-extern rt_event_t g_thread5Event;
+rt_event_t GetTaskEventSetObj(uint8_t index);
 
 #endif
 
