@@ -15,10 +15,10 @@
 #define TASK_NUM sizeof(g_taskHandleTable) / sizeof(HndTask)
 
 TASK_CONSTRUCT(System, SYSTEM_TASK_ID, SystemTaskInit, SystemTaskCycle, SystemTaskProcess);
-TASK_CONSTRUCT(Nad, SYSTEM_TASK_ID, SystemTaskInit, SystemTaskCycle, SystemTaskProcess);
-TASK_CONSTRUCT(Can, SYSTEM_TASK_ID, SystemTaskInit, SystemTaskCycle, SystemTaskProcess);
-TASK_CONSTRUCT(Platform, SYSTEM_TASK_ID, SystemTaskInit, SystemTaskCycle, SystemTaskProcess);
-TASK_CONSTRUCT(Custom, SYSTEM_TASK_ID, SystemTaskInit, SystemTaskCycle, SystemTaskProcess);
+TASK_CONSTRUCT(Nad, NAD_TASK_ID, NadTaskInit, NadTaskCycle, NadTaskProcess);
+TASK_CONSTRUCT(Can, CAN_TASK_ID, CanTaskInit, CanTaskCycle, CanTaskProcess);
+TASK_CONSTRUCT(Platform, PLATFORM_TASK_ID, PlatformTaskCycle, SystemTaskCycle, PlatformTaskProcess);
+TASK_CONSTRUCT(Custom, CUSTOM_TASK_ID, CustomTaskInit, CustomTaskCycle, CustomTaskProcess);
 
 static const HndTask g_taskHandleTable[] = {
     TASK_OBJ_HANDLE(System),

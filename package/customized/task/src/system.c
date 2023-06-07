@@ -30,7 +30,6 @@ void thread1_entry(void *parameter)
 
     for (; ;) {
         rt_uint32_t e;
-        elog_info(SYSTEM, "system\r\n");
         if (rt_event_recv(GetTaskEventSetObj(SYSTEM_TASK_ID), TASK1_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
             RT_EOK) {
             RteRunnableTask1();

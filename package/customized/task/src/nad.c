@@ -30,7 +30,6 @@ void thread2_entry(void *parameter)
 
     for (; ;) {
         rt_uint32_t e;
-        elog_info(SYSTEM, "nad\r\n");
         if (rt_event_recv(GetTaskEventSetObj(NAD_TASK_ID), TASK2_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
             RT_EOK) {
             RteRunnableTask2();
