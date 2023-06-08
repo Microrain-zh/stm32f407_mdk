@@ -17,7 +17,7 @@
 TASK_CONSTRUCT(System, SYSTEM_TASK_ID, SystemTaskInit, SystemTaskCycle, SystemTaskProcess);
 TASK_CONSTRUCT(Nad, NAD_TASK_ID, NadTaskInit, NadTaskCycle, NadTaskProcess);
 TASK_CONSTRUCT(Can, CAN_TASK_ID, CanTaskInit, CanTaskCycle, CanTaskProcess);
-TASK_CONSTRUCT(Platform, PLATFORM_TASK_ID, PlatformTaskCycle, SystemTaskCycle, PlatformTaskProcess);
+TASK_CONSTRUCT(Platform, PLATFORM_TASK_ID, PlatformTaskInit, PlatformTaskCycle, PlatformTaskProcess);
 TASK_CONSTRUCT(Custom, CUSTOM_TASK_ID, CustomTaskInit, CustomTaskCycle, CustomTaskProcess);
 
 static const HndTask g_taskHandleTable[] = {
@@ -49,7 +49,7 @@ static void SysApiEventQueueInit(void)
 
 uint32_t SysApiGetSystickCount(void)
 {
-    return HAL_GetTick();
+    return rt_tick_get();
 }
 
 void SysApiInit(void)
