@@ -26,7 +26,6 @@ Project File Date:  06/05/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin'
-*** Note: Rebuilding project, since 'Options->Output->Create Batch File' is selected.
 Rebuild target 'stm32f407_mdk'
 Note: source file '..\package\customized\source\detect\key_detect.c' - object file renamed from '.\Objects\key_detect.o' to '.\Objects\key_detect_1.o'.
 Note: source file '..\package\customized\source\detect\multi_button.c' - object file renamed from '.\Objects\multi_button.o' to '.\Objects\multi_button_1.o'.
@@ -108,6 +107,9 @@ compiling sys_api.c...
 compiling sys_cfg.c...
 compiling tmr.c...
 compiling elog.c...
+..\package\platform\framework\log\src\elog.c(937): warning:  #1-D: last line of file ends without a newline
+  }
+..\package\platform\framework\log\src\elog.c: 1 warning, 0 errors
 compiling elog_async.c...
 compiling elog_buf.c...
 compiling elog_utils.c...
@@ -118,10 +120,10 @@ compiling elog_port.c...
   }
 ..\package\platform\framework\log\port\elog_port.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=25852 RO-data=1384 RW-data=252 ZI-data=44060  
+Program Size: Code=26940 RO-data=1384 RW-data=252 ZI-data=44060  
 FromELF: creating hex file...
 After Build - User command #1: D:\software\install\MDK-ARM\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin -o ./Objects/f407.bin ./Objects/f407.axf"
-".\Objects\f407.axf" - 0 Error(s), 4 Warning(s).
+".\Objects\f407.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -145,7 +147,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.4.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:02:16
+Build Time Elapsed:  00:01:10
 </pre>
 </body>
 </html>

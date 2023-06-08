@@ -85,5 +85,6 @@ void rt_hw_board_init(void)
     MX_USART2_UART_Init();
     OsSysTickInit();
     uart_device_init(DEV_UART2);
+    LogInit();
     SysApiInit();
 }

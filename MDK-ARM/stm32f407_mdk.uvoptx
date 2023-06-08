@@ -157,9 +157,41 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
+          <LineNumber>24</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134228710</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\customized\task\src\can.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/customized/task/src/can.c\24</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>24</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134228794</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\customized\task\src\custom.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/customized/task/src/custom.c\24</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
           <LineNumber>183</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227102</Address>
+          <Address>134227246</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -171,11 +203,11 @@
           <Expression>\\f407\../package/platform/framework/sys_cfg/sys_cfg.c\183</Expression>
         </Bp>
         <Bp>
-          <Number>1</Number>
+          <Number>3</Number>
           <Type>0</Type>
           <LineNumber>35</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241940</Address>
+          <Address>134242340</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -187,11 +219,11 @@
           <Expression>\\f407\../package/customized/task/src/nad.c\35</Expression>
         </Bp>
         <Bp>
-          <Number>2</Number>
+          <Number>4</Number>
           <Type>0</Type>
           <LineNumber>242</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220282</Address>
+          <Address>134220374</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -203,11 +235,11 @@
           <Expression>\\f407\../Core/Src/stm32f4xx_it.c\242</Expression>
         </Bp>
         <Bp>
-          <Number>3</Number>
+          <Number>5</Number>
           <Type>0</Type>
           <LineNumber>241</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220202</Address>
+          <Address>134220294</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -219,11 +251,11 @@
           <Expression>\\f407\../Core/Src/stm32f4xx_it.c\241</Expression>
         </Bp>
         <Bp>
-          <Number>4</Number>
+          <Number>6</Number>
           <Type>0</Type>
           <LineNumber>23</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134242028</Address>
+          <Address>134242428</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -235,11 +267,11 @@
           <Expression>\\f407\../package/customized/task/src/platform.c\23</Expression>
         </Bp>
         <Bp>
-          <Number>5</Number>
+          <Number>7</Number>
           <Type>0</Type>
           <LineNumber>24</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134228566</Address>
+          <Address>134228966</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -251,11 +283,11 @@
           <Expression>\\f407\../package/customized/task/src/system.c\24</Expression>
         </Bp>
         <Bp>
-          <Number>6</Number>
+          <Number>8</Number>
           <Type>0</Type>
           <LineNumber>1863</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134236798</Address>
+          <Address>134237198</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -267,11 +299,11 @@
           <Expression>\\f407\../RT-Thread/src/ipc.c\1863</Expression>
         </Bp>
         <Bp>
-          <Number>7</Number>
+          <Number>9</Number>
           <Type>0</Type>
           <LineNumber>1877</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134236840</Address>
+          <Address>134237240</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -283,11 +315,11 @@
           <Expression>\\f407\../RT-Thread/src/ipc.c\1877</Expression>
         </Bp>
         <Bp>
-          <Number>8</Number>
+          <Number>10</Number>
           <Type>0</Type>
           <LineNumber>35</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134242072</Address>
+          <Address>134242472</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -299,11 +331,11 @@
           <Expression>\\f407\../package/customized/task/src/custom.c\35</Expression>
         </Bp>
         <Bp>
-          <Number>9</Number>
+          <Number>11</Number>
           <Type>0</Type>
           <LineNumber>155</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134228162</Address>
+          <Address>134228306</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -315,11 +347,11 @@
           <Expression>\\f407\../package/platform/framework/tmr/tmr.c\155</Expression>
         </Bp>
         <Bp>
-          <Number>10</Number>
+          <Number>12</Number>
           <Type>0</Type>
           <LineNumber>35</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241896</Address>
+          <Address>134242296</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -331,11 +363,11 @@
           <Expression>\\f407\../package/customized/task/src/system.c\35</Expression>
         </Bp>
         <Bp>
-          <Number>11</Number>
+          <Number>13</Number>
           <Type>0</Type>
           <LineNumber>17</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241992</Address>
+          <Address>134242392</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -347,11 +379,11 @@
           <Expression>\\f407\../package/customized/task/src/platform.c\17</Expression>
         </Bp>
         <Bp>
-          <Number>12</Number>
+          <Number>14</Number>
           <Type>0</Type>
           <LineNumber>77</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227290</Address>
+          <Address>134227434</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -363,11 +395,11 @@
           <Expression>\\f407\../package/platform/framework/sys_cfg/sys_cfg.c\77</Expression>
         </Bp>
         <Bp>
-          <Number>13</Number>
+          <Number>15</Number>
           <Type>0</Type>
           <LineNumber>78</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227298</Address>
+          <Address>134227442</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -379,11 +411,11 @@
           <Expression>\\f407\../package/platform/framework/sys_cfg/sys_cfg.c\78</Expression>
         </Bp>
         <Bp>
-          <Number>14</Number>
+          <Number>16</Number>
           <Type>0</Type>
           <LineNumber>79</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227300</Address>
+          <Address>134227444</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -395,11 +427,11 @@
           <Expression>\\f407\../package/platform/framework/sys_cfg/sys_cfg.c\79</Expression>
         </Bp>
         <Bp>
-          <Number>15</Number>
+          <Number>17</Number>
           <Type>0</Type>
           <LineNumber>81</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134227304</Address>
+          <Address>134227448</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -411,7 +443,7 @@
           <Expression>\\f407\../package/platform/framework/sys_cfg/sys_cfg.c\81</Expression>
         </Bp>
         <Bp>
-          <Number>16</Number>
+          <Number>18</Number>
           <Type>0</Type>
           <LineNumber>55</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -427,7 +459,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>17</Number>
+          <Number>19</Number>
           <Type>0</Type>
           <LineNumber>101</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -443,7 +475,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>18</Number>
+          <Number>20</Number>
           <Type>0</Type>
           <LineNumber>106</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -459,7 +491,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>19</Number>
+          <Number>21</Number>
           <Type>0</Type>
           <LineNumber>125</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -475,7 +507,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>20</Number>
+          <Number>22</Number>
           <Type>0</Type>
           <LineNumber>130</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -491,7 +523,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>21</Number>
+          <Number>23</Number>
           <Type>0</Type>
           <LineNumber>133</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -507,7 +539,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>22</Number>
+          <Number>24</Number>
           <Type>0</Type>
           <LineNumber>932</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -523,7 +555,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>23</Number>
+          <Number>25</Number>
           <Type>0</Type>
           <LineNumber>933</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -539,7 +571,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>24</Number>
+          <Number>26</Number>
           <Type>0</Type>
           <LineNumber>58</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -555,7 +587,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>25</Number>
+          <Number>27</Number>
           <Type>0</Type>
           <LineNumber>59</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -571,7 +603,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>26</Number>
+          <Number>28</Number>
           <Type>0</Type>
           <LineNumber>154</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -587,7 +619,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>27</Number>
+          <Number>29</Number>
           <Type>0</Type>
           <LineNumber>36</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -603,7 +635,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>28</Number>
+          <Number>30</Number>
           <Type>0</Type>
           <LineNumber>36</LineNumber>
           <EnabledFlag>1</EnabledFlag>

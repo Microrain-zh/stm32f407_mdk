@@ -271,6 +271,8 @@ size_t elog_strcpy(size_t cur_len, char *dst, const char *src);
 size_t elog_cpyln(char *line, const char *log, size_t len);
 void *elog_memcpy(void *dst, const void *src, size_t count);
 
+void LogInit(void);
+
 #ifdef __cplusplus
 }
 #endif
