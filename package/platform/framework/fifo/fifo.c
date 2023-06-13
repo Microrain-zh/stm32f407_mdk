@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "fifo.h"
+#include "rthw.h"
 
 #define IS_POWER_OF_2(x)    ((x) != 0 && (((x) & ((x) - 1)) == 0))
 #define EINVAL 22 /* Invalid argument */
@@ -92,14 +93,16 @@ unsigned int FifoIn(struct Fifo *fifo, const void *buf, unsigned int len)
 {
     unsigned int l;
 
-    fifo->lock();
+    /* fifo->lock(); */
+    rt_base_t level = rt_hw_interrupt_disable();
     l = FifoUnused(fifo);
     if (len > l)
         len = l;
 
     FifoCopyIn(fifo, buf, len, fifo->in);
     fifo->in += len;
-    fifo->unlock();
+    /* fifo->unlock(); */
+    rt_hw_interrupt_enable(level);
 
     return len;
 }
@@ -110,7 +113,8 @@ static void FifoCopyOut(struct Fifo *fifo, void *dst, unsigned int len, unsigned
     unsigned int esize = fifo->esize;
     unsigned int l;
 
-    fifo->lock();
+    /* fifo->lock(); */
+    rt_base_t level = rt_hw_interrupt_disable();
     off &= fifo->mask;
     if (esize != 1) {
         off *= esize;
@@ -121,7 +125,8 @@ static void FifoCopyOut(struct Fifo *fifo, void *dst, unsigned int len, unsigned
 
     memcpy((unsigned char *)dst, (unsigned char *)fifo->data + off, l);
     memcpy((unsigned char *)dst + l, (unsigned char *)fifo->data, len - l);
-    fifo->unlock();
+    /* fifo->unlock(); */
+    rt_hw_interrupt_enable(level);
 }
 
 /* 读取队列的值，不会取出队列 */

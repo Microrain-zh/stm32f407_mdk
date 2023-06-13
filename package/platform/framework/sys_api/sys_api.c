@@ -1,23 +1,30 @@
 #include "sys_api.h"
+#include "rthw.h"
+
+volatile static rt_base_t g_level = 0;
 
 void __DI(void)
 {
     /* __disable_irq(); */
-    __asm("CPSID I");
+    /* __asm("CPSID I"); */
+    g_level = rt_hw_interrupt_disable();
 }
 
 void __EI(void)
 {
     /* __enable_irq(); */
-    __asm("CPSIE I");
+    /* __asm("CPSIE I"); */
+    rt_hw_interrupt_enable(g_level);
 }
 
 static void RteEventDeQueue(HndTask this)
 {
     RteEventQueueType *paraEventQueue = NULL;
     paraEventQueue = this->ramData->eventQueueBuf;
+    rt_base_t level;
 
-    __DI();
+    /* __DI(); */
+    level = rt_hw_interrupt_disable();
     while (paraEventQueue->rteActive > 0) {
 
         uint8_t current;
@@ -29,14 +36,17 @@ static void RteEventDeQueue(HndTask this)
             current = 0;
         }
         paraEventQueue->rteServerPos = current;
-        __EI();
+        /* __EI(); */
+        rt_hw_interrupt_enable(level);
         if (this->process != NULL) {
             this->process(paraEventQueue->rteEventData[current].eventId, paraEventQueue->rteEventData[current].paraLen,
                 paraEventQueue->rteEventData[current].paraBuf);
         }
-        __DI();
+        /* __DI(); */
+        level = rt_hw_interrupt_disable();
     }
-    __EI();
+    /* __EI(); */
+    rt_hw_interrupt_enable(level);
 }
 
 static void RteEventQueueInit(HndTask this)
@@ -44,14 +54,16 @@ static void RteEventQueueInit(HndTask this)
     RteEventQueueType *paraEventQueue = NULL;
     paraEventQueue = this->ramData->eventQueueBuf;
 
-    __DI();
+    /* _DI(); */
+    rt_base_t level = rt_hw_interrupt_disable();
 
     paraEventQueue->rteClientPos = 0;
     paraEventQueue->rteServerPos = 0;
     paraEventQueue->rteFree = MAX_QUEUE_DATA;
     paraEventQueue->rteActive = 0;
 
-    __EI();
+    /* __EI(); */
+    rt_hw_interrupt_enable(level);
 }
 
 static SysResult RteEventEnQueue(HndTask this, uint32_t event, uint16_t len, const uint8_t *buf)
@@ -59,9 +71,11 @@ static SysResult RteEventEnQueue(HndTask this, uint32_t event, uint16_t len, con
     RteEventQueueType *paraEventQueue = NULL;
     uint8_t current;
     SysResult ret = SYS_OK;
+    rt_base_t level;
 
     paraEventQueue = this->ramData->eventQueueBuf;
-    __DI();
+    /* __DI(); */
+    level = rt_hw_interrupt_disable();
     if (paraEventQueue->rteFree > 0) {
         paraEventQueue->rteFree--;
         paraEventQueue->rteActive++;
@@ -80,7 +94,8 @@ static SysResult RteEventEnQueue(HndTask this, uint32_t event, uint16_t len, con
     } else {
         ret = SYS_ERR;
     }
-    __EI();
+    /* __EI(); */
+    rt_hw_interrupt_enable(level);
 
     return ret;
 }

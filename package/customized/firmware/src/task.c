@@ -33,8 +33,8 @@ static rt_uint8_t thread5_stack[4096];
 #define TASK1_PRIORITY          5
 #define TASK2_PRIORITY          20
 #define TASK3_PRIORITY          10
-#define TASK4_PRIORITY          15
-#define TASK5_PRIORITY          25
+#define TASK4_PRIORITY          25
+#define TASK5_PRIORITY          15
 
 #define TASK1_TICK_PER_SECOND   5
 #define TASK2_TICK_PER_SECOND   5

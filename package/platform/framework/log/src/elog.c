@@ -32,6 +32,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include "rthw.h"
 
 #if !defined(ELOG_OUTPUT_LVL)
     #error "Please configure static output log level (in elog_cfg.h)"
@@ -568,6 +569,7 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
     char tag_sapce[ELOG_FILTER_TAG_MAX_LEN / 2 + 1] = { 0 };
     va_list args;
     int fmt_result;
+    rt_base_t ilevel;
 
     ELOG_ASSERT(level <= ELOG_LVL_VERBOSE);
 
@@ -584,7 +586,8 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
     /* args point to the first variable parameter */
     va_start(args, format);
     /* lock output */
-    elog_output_lock();
+    /* elog_output_lock(); */
+    ilevel = rt_hw_interrupt_disable();
 
 #ifdef ELOG_COLOR_ENABLE
     /* add CSI start sign and color info */
@@ -691,7 +694,8 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
         /* find the keyword */
         if (!strstr(log_buf, elog.filter.keyword)) {
             /* unlock output */
-            elog_output_unlock();
+            /* elog_output_unlock(); */
+            rt_hw_interrupt_enable(ilevel);
             return;
         }
     }
@@ -704,7 +708,7 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
 #endif
 
     /* package newline sign */
-    log_len += elog_strcpy(log_len, log_buf + log_len, ELOG_NEWLINE_SIGN);
+    /* log_len += elog_strcpy(log_len, log_buf + log_len, ELOG_NEWLINE_SIGN); */
     /* output log */
 #if defined(ELOG_ASYNC_OUTPUT_ENABLE)
     extern void elog_async_output(uint8_t level, const char *log, size_t size);

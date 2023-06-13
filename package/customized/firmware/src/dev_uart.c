@@ -75,26 +75,25 @@ void uart_device_init(uint8_t uart_id)
     {
         /* 配置串口1收发fifo */
         FifoInit(&s_uart_dev[uart_id].tx_fifo, &s_uart1_tx_buf[0], 
-                      sizeof(s_uart1_tx_buf),sizeof(uint8_t), fifo_lock, fifo_unlock);
+            sizeof(s_uart1_tx_buf),sizeof(uint8_t), fifo_lock, fifo_unlock);
         FifoInit(&s_uart_dev[uart_id].rx_fifo, &s_uart1_rx_buf[0], 
-                      sizeof(s_uart1_rx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
-        
+            sizeof(s_uart1_rx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
         /* 配置串口1 DMA收发buf */
         s_uart_dev[uart_id].dmarx_buf = &s_uart1_dmarx_buf[0];
         s_uart_dev[uart_id].dmarx_buf_size = sizeof(s_uart1_dmarx_buf);
         s_uart_dev[uart_id].dmatx_buf = &s_uart1_dmatx_buf[0];
         s_uart_dev[uart_id].dmatx_buf_size = sizeof(s_uart1_dmatx_buf);
         uart1_dma_init(s_uart_dev[uart_id].dmarx_buf, 
-                               sizeof(s_uart1_dmarx_buf));/* 只需配置接收模式DMA，发送模式需发送数据时才配置 */
+            sizeof(s_uart1_dmarx_buf));/* 只需配置接收模式DMA，发送模式需发送数据时才配置 */
         s_uart_dev[uart_id].status  = 0;
     }
     else if (uart_id == 1)
     {
         /* 配置串口2收发fifo */
         FifoInit(&s_uart_dev[uart_id].tx_fifo, &s_uart2_tx_buf[0], 
-                      sizeof(s_uart2_tx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
+            sizeof(s_uart2_tx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
         FifoInit(&s_uart_dev[uart_id].rx_fifo, &s_uart2_rx_buf[0], 
-                      sizeof(s_uart2_rx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
+            sizeof(s_uart2_rx_buf), sizeof(uint8_t), fifo_lock, fifo_unlock);
         
         /* 配置串口2 DMA收发buf */
         s_uart_dev[uart_id].dmarx_buf = &s_uart2_dmarx_buf[0];
@@ -102,7 +101,7 @@ void uart_device_init(uint8_t uart_id)
         s_uart_dev[uart_id].dmatx_buf = &s_uart2_dmatx_buf[0];
         s_uart_dev[uart_id].dmatx_buf_size = sizeof(s_uart2_dmatx_buf);
         //bsp_uart2_dmarx_config(s_uart_dev[uart_id].dmarx_buf, 
-        //                       sizeof(s_uart2_dmarx_buf));
+        // sizeof(s_uart2_dmarx_buf));
         s_uart_dev[uart_id].status  = 0;
     }
 }
