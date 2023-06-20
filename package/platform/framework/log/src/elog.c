@@ -587,8 +587,8 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
     /* args point to the first variable parameter */
     va_start(args, format);
     /* lock output */
-    /* elog_output_lock(); */
-    ilevel = rt_hw_interrupt_disable();
+    elog_output_lock();
+    // ilevel = rt_hw_interrupt_disable();
 
 #ifdef ELOG_COLOR_ENABLE
     /* add CSI start sign and color info */
@@ -695,8 +695,8 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
         /* find the keyword */
         if (!strstr(log_buf, elog.filter.keyword)) {
             /* unlock output */
-            /* elog_output_unlock(); */
-            rt_hw_interrupt_enable(ilevel);
+            elog_output_unlock();
+            // rt_hw_interrupt_enable(ilevel);
             return;
         }
     }

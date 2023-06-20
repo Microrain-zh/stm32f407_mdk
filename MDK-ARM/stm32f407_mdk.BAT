@@ -1,7 +1,4 @@
 SET PATH=D:\software\install\MDK-ARM\Keil_v5\ARM\ARMCC\Bin;D:\software\install\VMware-workstation\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\software\install\git\Git\cmd;D:\software\install\TortoiseGit\bin;D:\software\install\VSCode\Microsoft VS Code\bin;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\wangfeitao\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\MinGW\msys\1.0\bin;
-SET ARMCC5_ASMOPT=--diag_suppress=9931
-SET ARMCC5_CCOPT=--diag_suppress=9931
-SET ARMCC5_LINKOPT=--diag_suppress=9931
 SET CPU_TYPE=STM32F407ZGTx
 SET CPU_VENDOR=STMicroelectronics
 SET UV2_TARGET=stm32f407_mdk

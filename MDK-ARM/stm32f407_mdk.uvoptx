@@ -159,7 +159,7 @@
           <Type>0</Type>
           <LineNumber>37</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134246758</Address>
+          <Address>134247182</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -175,7 +175,7 @@
           <Type>0</Type>
           <LineNumber>25</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134246938</Address>
+          <Address>134247374</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -191,7 +191,7 @@
           <Type>0</Type>
           <LineNumber>37</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134246818</Address>
+          <Address>134247246</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -207,7 +207,7 @@
           <Type>0</Type>
           <LineNumber>37</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134246998</Address>
+          <Address>134247438</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -223,7 +223,7 @@
           <Type>0</Type>
           <LineNumber>37</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134246878</Address>
+          <Address>134247310</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -237,9 +237,9 @@
         <Bp>
           <Number>5</Number>
           <Type>0</Type>
-          <LineNumber>34</LineNumber>
+          <LineNumber>24</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134246730</Address>
+          <Address>134230970</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -248,247 +248,167 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\package\customized\task\src\system.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/task/src/system.c\34</Expression>
+          <Expression>\\f407\../package/customized/task/src/system.c\24</Expression>
         </Bp>
         <Bp>
           <Number>6</Number>
           <Type>0</Type>
-          <LineNumber>134</LineNumber>
+          <LineNumber>24</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134233458</Address>
+          <Address>134230706</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\RT-Thread\src\ipc.c</Filename>
+          <Filename>..\package\customized\task\src\can.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../RT-Thread/src/ipc.c\134</Expression>
+          <Expression>\\f407\../package/customized/task/src/can.c\24</Expression>
         </Bp>
         <Bp>
           <Number>7</Number>
           <Type>0</Type>
-          <LineNumber>75</LineNumber>
+          <LineNumber>24</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241990</Address>
+          <Address>134230886</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\RT-Thread\include\rtservice.h</Filename>
+          <Filename>..\package\customized\task\src\nad.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../RT-Thread/include/rtservice.h\75</Expression>
+          <Expression>\\f407\../package/customized/task/src/nad.c\24</Expression>
         </Bp>
         <Bp>
           <Number>8</Number>
           <Type>0</Type>
-          <LineNumber>76</LineNumber>
+          <LineNumber>24</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241994</Address>
+          <Address>134230790</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\RT-Thread\include\rtservice.h</Filename>
+          <Filename>..\package\customized\task\src\custom.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../RT-Thread/include/rtservice.h\76</Expression>
+          <Expression>\\f407\../package/customized/task/src/custom.c\24</Expression>
         </Bp>
         <Bp>
           <Number>9</Number>
           <Type>0</Type>
-          <LineNumber>78</LineNumber>
+          <LineNumber>201</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241998</Address>
+          <Address>134229580</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\RT-Thread\include\rtservice.h</Filename>
+          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../RT-Thread/include/rtservice.h\78</Expression>
+          <Expression>\\f407\../Core/Src/stm32f4xx_it.c\201</Expression>
         </Bp>
         <Bp>
           <Number>10</Number>
           <Type>0</Type>
-          <LineNumber>79</LineNumber>
+          <LineNumber>198</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134242000</Address>
+          <Address>134229532</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\RT-Thread\include\rtservice.h</Filename>
+          <Filename>../Core/Src/stm32f4xx_it.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../RT-Thread/include/rtservice.h\79</Expression>
+          <Expression>\\f407\../Core/Src/stm32f4xx_it.c\198</Expression>
         </Bp>
         <Bp>
           <Number>11</Number>
           <Type>0</Type>
-          <LineNumber>61</LineNumber>
+          <LineNumber>591</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229632</Address>
+          <Address>134237988</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
+          <Filename>..\package\platform\framework\log\src\elog.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\61</Expression>
+          <Expression>\\f407\../package/platform/framework/log/src/elog.c\591</Expression>
         </Bp>
         <Bp>
           <Number>12</Number>
           <Type>0</Type>
-          <LineNumber>60</LineNumber>
+          <LineNumber>699</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229614</Address>
+          <Address>134238552</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
+          <Filename>..\package\platform\framework\log\src\elog.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\60</Expression>
+          <Expression>\\f407\../package/platform/framework/log/src/elog.c\699</Expression>
         </Bp>
         <Bp>
           <Number>13</Number>
           <Type>0</Type>
-          <LineNumber>66</LineNumber>
+          <LineNumber>721</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229660</Address>
+          <Address>134238560</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
+          <Filename>..\package\platform\framework\log\src\elog.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\66</Expression>
+          <Expression>\\f407\../package/platform/framework/log/src/elog.c\721</Expression>
         </Bp>
         <Bp>
           <Number>14</Number>
           <Type>0</Type>
-          <LineNumber>65</LineNumber>
+          <LineNumber>724</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229642</Address>
+          <Address>134238568</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
+          <Filename>..\package\platform\framework\log\src\elog.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\65</Expression>
+          <Expression>\\f407\../package/platform/framework/log/src/elog.c\724</Expression>
         </Bp>
         <Bp>
           <Number>15</Number>
           <Type>0</Type>
-          <LineNumber>70</LineNumber>
+          <LineNumber>725</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229670</Address>
+          <Address>134237944</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
+          <Filename>..\package\platform\framework\log\src\elog.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\70</Expression>
-        </Bp>
-        <Bp>
-          <Number>16</Number>
-          <Type>0</Type>
-          <LineNumber>71</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229688</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\71</Expression>
-        </Bp>
-        <Bp>
-          <Number>17</Number>
-          <Type>0</Type>
-          <LineNumber>75</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229698</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\75</Expression>
-        </Bp>
-        <Bp>
-          <Number>18</Number>
-          <Type>0</Type>
-          <LineNumber>76</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229716</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\76</Expression>
-        </Bp>
-        <Bp>
-          <Number>19</Number>
-          <Type>0</Type>
-          <LineNumber>80</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229726</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\80</Expression>
-        </Bp>
-        <Bp>
-          <Number>20</Number>
-          <Type>0</Type>
-          <LineNumber>81</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229744</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\firmware\src\task.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/firmware/src/task.c\81</Expression>
+          <Expression>\\f407\../package/platform/framework/log/src/elog.c\725</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

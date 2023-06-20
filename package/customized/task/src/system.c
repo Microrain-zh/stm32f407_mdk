@@ -33,9 +33,9 @@ void thread1_entry(void *parameter)
         rt_uint32_t a;
         if (rt_event_recv(GetTaskEventSetObj(SYSTEM_TASK_ID), TASK1_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR,
             RT_WAITING_FOREVER, &a) == RT_EOK) {
-            // RteRunnableTask1();
+            RteRunnableTask1();
             a1++;
-            rt_thread_mdelay(5);
+            rt_thread_delay(5);
         }
     }
 }
