@@ -27,12 +27,15 @@ TMR_CALLBACK_FUNC(Custom)
 void thread5_entry(void *parameter)
 {
     SysApiTaskInitById(CUSTOM_TASK_ID);
+    static uint32_t a5  = 0;
 
     for (; ;) {
         rt_uint32_t e;
-        if (rt_event_recv(GetTaskEventSetObj(CUSTOM_TASK_ID), TASK5_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
-            RT_EOK) {
-            RteRunnableTask5();
+        if (rt_event_recv(GetTaskEventSetObj(CUSTOM_TASK_ID), TASK5_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR,
+            RT_WAITING_FOREVER, &e) == RT_EOK) {
+            // RteRunnableTask5();
+            a5++;
+            rt_thread_mdelay(5);
         }
     }
 }

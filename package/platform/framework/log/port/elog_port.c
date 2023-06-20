@@ -27,8 +27,12 @@
  */
  
 #include <elog.h>
-#include "rtthread.h"
+#include <rthw.h>
+#include <rtthread.h>
 #include "sys_api.h"
+
+// static struct rt_semaphore output_lock;
+static struct rt_mutex output_lock;
 
 /**
  * EasyLogger port initialize
@@ -39,7 +43,9 @@ ElogErrCode elog_port_init(void) {
     ElogErrCode result = ELOG_NO_ERR;
 
     /* add your code here */
-    
+    // rt_sem_init(&output_lock, "elog lock", 1, RT_IPC_FLAG_FIFO);
+    rt_mutex_init(&output_lock, "elog lock", RT_IPC_FLAG_PRIO);
+
     return result;
 }
 
@@ -71,7 +77,8 @@ void elog_port_output(const char *log, size_t size) {
 void elog_port_output_lock(void) {
     
     /* add your code here */
-    __DI();
+    // rt_sem_take(&output_lock, RT_WAITING_FOREVER);
+    rt_mutex_take(&output_lock, RT_WAITING_FOREVER);
 }
 
 /**
@@ -80,7 +87,8 @@ void elog_port_output_lock(void) {
 void elog_port_output_unlock(void) {
     
     /* add your code here */
-    __EI();
+    // rt_sem_release(&output_lock);
+    rt_mutex_release(&output_lock);
 }
 
 /**

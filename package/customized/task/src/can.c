@@ -27,12 +27,15 @@ TMR_CALLBACK_FUNC(Can)
 void thread3_entry(void *parameter)
 {
     SysApiTaskInitById(CAN_TASK_ID);
+    static uint32_t a3  = 0;
 
     for (; ;) {
-        rt_uint32_t e;
-        if (rt_event_recv(GetTaskEventSetObj(CAN_TASK_ID), TASK3_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
-            RT_EOK) {
-            RteRunnableTask3();
+        rt_uint32_t c;
+        if (rt_event_recv(GetTaskEventSetObj(CAN_TASK_ID), TASK3_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR,
+            RT_WAITING_FOREVER, &c) == RT_EOK) {
+            // RteRunnableTask3();
+            a3++;
+            rt_thread_mdelay(5);
         }
     }
 }

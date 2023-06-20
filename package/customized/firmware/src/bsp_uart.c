@@ -1,4 +1,3 @@
-
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
@@ -74,11 +73,11 @@ void bsp_uart1_dmatx_config(uint8_t *mem_addr, uint32_t mem_size)
 //        
 //    LL_DMA_EnableIT_TC(DMA2, LL_DMA_STREAM_7);
 //    LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_7);
-//    /* HAL¿â³õÊ¼»¯Ê±»áÇå¿ÕDMAÍê³É/°ëÍê³É/´íÎóµÇÃÅÖĞ¶Ï£¬ËùÒÔ´Ë´¦²»±ØÇå³ı*/
+//    /* HALåº“åˆå§‹åŒ–æ—¶ä¼šæ¸…ç©ºDMAå®Œæˆ/åŠå®Œæˆ/é”™è¯¯ç™»é—¨ä¸­æ–­ï¼Œæ‰€ä»¥æ­¤å¤„ä¸å¿…æ¸…é™¤*/
 //    __HAL_UART_ENABLE_IT(&huart3,UART_IT_IDLE);
     __HAL_DMA_ENABLE_IT(&hdma_usart2_tx, DMA_IT_TC);
 //    __HAL_DMA_ENABLE_IT(&hdma_usart3_rx, DMA_IT_HT);
-//    /* HAL_UART_Receive_DMAÍê³É/´íÎóÖĞ¶ÏµÈ¿ªÆô*/
+//    /* HAL_UART_Receive_DMAå®Œæˆ/é”™è¯¯ä¸­æ–­ç­‰å¼€å¯*/
     HAL_UART_Transmit_DMA(&huart2, mem_addr, mem_size);
 
 }
@@ -103,11 +102,11 @@ void bsp_uart1_dmarx_config(uint8_t *mem_addr, uint32_t mem_size)
 //    LL_DMA_EnableIT_TC(DMA2, LL_DMA_STREAM_2);
 //    LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_2);
 
-//    /* HAL¿â³õÊ¼»¯Ê±»áÇå¿ÕDMAÍê³É/°ëÍê³É/´íÎóµÇÃÅÖĞ¶Ï£¬ËùÒÔ´Ë´¦²»±ØÇå³ı*/
+//    /* HALåº“åˆå§‹åŒ–æ—¶ä¼šæ¸…ç©ºDMAå®Œæˆ/åŠå®Œæˆ/é”™è¯¯ç™»é—¨ä¸­æ–­ï¼Œæ‰€ä»¥æ­¤å¤„ä¸å¿…æ¸…é™¤*/
     __HAL_UART_ENABLE_IT(&huart2,UART_IT_IDLE);
     __HAL_DMA_ENABLE_IT(&hdma_usart2_rx, DMA_IT_TC);
     __HAL_DMA_ENABLE_IT(&hdma_usart2_rx, DMA_IT_HT);
-    /* HAL_UART_Receive_DMAÍê³É/´íÎóÖĞ¶ÏµÈ¿ªÆô*/
+    /* HAL_UART_Receive_DMAå®Œæˆ/é”™è¯¯ä¸­æ–­ç­‰å¼€å¯*/
     HAL_UART_Receive_DMA(&huart2, mem_addr, mem_size);
 }
 

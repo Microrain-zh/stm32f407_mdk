@@ -25,8 +25,8 @@
 
 /* Inter-Thread communication */
 
-//#define RT_USING_SEMAPHORE
-//#define RT_USING_MUTEX
+#define RT_USING_SEMAPHORE
+#define RT_USING_MUTEX
 #define RT_USING_EVENT
 //#define RT_USING_MAILBOX
 //#define RT_USING_MESSAGEQUEUE

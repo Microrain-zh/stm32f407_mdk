@@ -21,18 +21,21 @@ TMR_CONSTRUCT(g_System, TMR_CALLBACK_FUNC_REF(System));
 TMR_CALLBACK_FUNC(System)
 {
     /* handle */
-     elog_info(SYSTEM, "system\r\n");
+    elog_info(SYSTEM, "system\r\n");
 }
 
 void thread1_entry(void *parameter)
 {
     SysApiTaskInitById(SYSTEM_TASK_ID);
+    static uint32_t a1  = 0;
 
     for (; ;) {
-        rt_uint32_t e;
-        if (rt_event_recv(GetTaskEventSetObj(SYSTEM_TASK_ID), TASK1_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
-            RT_EOK) {
-            RteRunnableTask1();
+        rt_uint32_t a;
+        if (rt_event_recv(GetTaskEventSetObj(SYSTEM_TASK_ID), TASK1_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR,
+            RT_WAITING_FOREVER, &a) == RT_EOK) {
+            // RteRunnableTask1();
+            a1++;
+            rt_thread_mdelay(5);
         }
     }
 }

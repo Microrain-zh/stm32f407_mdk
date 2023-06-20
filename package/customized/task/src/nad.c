@@ -27,12 +27,15 @@ TMR_CALLBACK_FUNC(Nad)
 void thread2_entry(void *parameter)
 {
     SysApiTaskInitById(NAD_TASK_ID);
+    static uint32_t a2  = 0;
 
     for (; ;) {
-        rt_uint32_t e;
-        if (rt_event_recv(GetTaskEventSetObj(NAD_TASK_ID), TASK2_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
-            RT_EOK) {
-            RteRunnableTask2();
+        rt_uint32_t b;
+        if (rt_event_recv(GetTaskEventSetObj(NAD_TASK_ID), TASK2_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR,
+            RT_WAITING_FOREVER, &b) == RT_EOK) {
+        //     RteRunnableTask2();
+        a2++;
+            rt_thread_mdelay(5);
         }
     }
 }

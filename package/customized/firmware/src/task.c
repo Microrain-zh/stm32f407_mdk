@@ -33,8 +33,8 @@ static rt_uint8_t thread5_stack[4096];
 #define TASK1_PRIORITY          5
 #define TASK2_PRIORITY          20
 #define TASK3_PRIORITY          10
-#define TASK4_PRIORITY          25
-#define TASK5_PRIORITY          15
+#define TASK4_PRIORITY          15
+#define TASK5_PRIORITY          25
 
 #define TASK1_TICK_PER_SECOND   5
 #define TASK2_TICK_PER_SECOND   5
@@ -72,7 +72,7 @@ static void TaskEventInit(void)
         rt_kprintf("task3 init event failed\r\n", ret);
     }
 
-    ret = rt_event_init(GetTaskEventSetObj(PLATFORM_TASK_ID), "tk4Mask", RT_IPC_FLAG_FIFO);
+    ret = rt_event_init(GetTaskEventSetObj(PLATFORM_TASK_ID), "t4Mask", RT_IPC_FLAG_FIFO);
     if (ret != RT_EOK) {
         rt_kprintf("task4 init event failed\r\n", ret);
     }
@@ -87,6 +87,8 @@ static void TaskEventInit(void)
 static int thread_sample_init(void)
 {
     rt_err_t result;
+
+    TaskEventInit();
 
     /* 初始化线程 1 */
     /* 线程的入口是 thread1_entry，参数是 RT_NULL
@@ -132,8 +134,6 @@ static int thread_sample_init(void)
     } else {
         rt_kprintf(SYSTEM, "thread5 init fail %u\r\n", result);
     }
-
-    TaskEventInit();
 
     return 0;
 }

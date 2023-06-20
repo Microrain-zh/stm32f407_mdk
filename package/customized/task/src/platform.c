@@ -15,12 +15,15 @@
 void thread4_entry(void *parameter)
 {
     SysApiTaskInitById(PLATFORM_TASK_ID);
+    static uint32_t a4  = 0;
 
     for (; ;) {
-        rt_uint32_t e;
-        if (rt_event_recv(GetTaskEventSetObj(PLATFORM_TASK_ID), TASK4_EVENT_MASK, RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e) ==
-            RT_EOK) {
-            RteRunnableTask4();
+        rt_uint32_t d;
+        if (rt_event_recv(GetTaskEventSetObj(PLATFORM_TASK_ID), TASK4_EVENT_MASK,
+            RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &d) == RT_EOK) {
+            // RteRunnableTask4();
+            a4++;
+            rt_thread_mdelay(5);
         }
     }
 }
