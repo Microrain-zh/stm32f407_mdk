@@ -122,12 +122,12 @@ static EasyLogger elog;
 static char log_buf[ELOG_LINE_BUF_SIZE] = { 0 };
 /* level output info */
 static const char *level_output_info[] = {
-        [ELOG_LVL_ASSERT]  = "A/",
-        [ELOG_LVL_ERROR]   = "E/",
-        [ELOG_LVL_WARN]    = "W/",
-        [ELOG_LVL_INFO]    = "I/",
-        [ELOG_LVL_DEBUG]   = "D/",
-        [ELOG_LVL_VERBOSE] = "V/",
+        [ELOG_LVL_ASSERT]  = "A:",
+        [ELOG_LVL_ERROR]   = "E:",
+        [ELOG_LVL_WARN]    = "W:",
+        [ELOG_LVL_INFO]    = "I:",
+        [ELOG_LVL_DEBUG]   = "D:",
+        [ELOG_LVL_VERBOSE] = "V:",
 };
 
 #ifdef ELOG_COLOR_ENABLE
@@ -243,7 +243,7 @@ void elog_start(void) {
 #endif
 
     /* show version */
-    log_i("EasyLogger V%s is initialize success.", ELOG_SW_VERSION);
+    /* log_i("EasyLogger V%s is initialize success.", ELOG_SW_VERSION); */
 }
 
 /**
@@ -264,7 +264,7 @@ void elog_stop(void) {
 #endif
 
     /* show version */
-    log_i("EasyLogger V%s is deinitialize success.", ELOG_SW_VERSION);
+    /* log_i("EasyLogger V%s is deinitialize success.", ELOG_SW_VERSION); */
 }
 
 
@@ -570,7 +570,7 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
     char tag_sapce[ELOG_FILTER_TAG_MAX_LEN / 2 + 1] = { 0 };
     va_list args;
     int fmt_result;
-    rt_base_t ilevel;
+    /* rt_base_t ilevel; */
 
     ELOG_ASSERT(level <= ELOG_LVL_VERBOSE);
 
@@ -597,21 +597,6 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
         log_len += elog_strcpy(log_len, log_buf + log_len, color_output_info[level]);
     }
 #endif
-
-    /* package level info */
-    if (get_fmt_enabled(level, ELOG_FMT_LVL)) {
-        log_len += elog_strcpy(log_len, log_buf + log_len, level_output_info[level]);
-    }
-    /* package tag info */
-    if (get_fmt_enabled(level, ELOG_FMT_TAG)) {
-        log_len += elog_strcpy(log_len, log_buf + log_len, tag);
-        /* if the tag length is less than 50% ELOG_FILTER_TAG_MAX_LEN, then fill space */
-        if (tag_len <= ELOG_FILTER_TAG_MAX_LEN / 2) {
-            memset(tag_sapce, ' ', ELOG_FILTER_TAG_MAX_LEN / 2 - tag_len);
-            log_len += elog_strcpy(log_len, log_buf + log_len, tag_sapce);
-        }
-        log_len += elog_strcpy(log_len, log_buf + log_len, " ");
-    }
     /* package time, process and thread info */
     if (get_fmt_enabled(level, ELOG_FMT_TIME | ELOG_FMT_P_INFO | ELOG_FMT_T_INFO)) {
         log_len += elog_strcpy(log_len, log_buf + log_len, "[");
@@ -633,7 +618,21 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
         if (get_fmt_enabled(level, ELOG_FMT_T_INFO)) {
             log_len += elog_strcpy(log_len, log_buf + log_len, elog_port_get_t_info());
         }
-        log_len += elog_strcpy(log_len, log_buf + log_len, "] ");
+        log_len += elog_strcpy(log_len, log_buf + log_len, "]");
+    }
+    /* package level info */
+    if (get_fmt_enabled(level, ELOG_FMT_LVL)) {
+        log_len += elog_strcpy(log_len, log_buf + log_len, level_output_info[level]);
+    }
+    /* package tag info */
+    if (get_fmt_enabled(level, ELOG_FMT_TAG)) {
+        log_len += elog_strcpy(log_len, log_buf + log_len, tag);
+        /* if the tag length is less than 50% ELOG_FILTER_TAG_MAX_LEN, then fill space */
+        if (tag_len <= ELOG_FILTER_TAG_MAX_LEN / 2) {
+            memset(tag_sapce, ' ', ELOG_FILTER_TAG_MAX_LEN / 2 - tag_len);
+            log_len += elog_strcpy(log_len, log_buf + log_len, tag_sapce);
+        }
+        log_len += elog_strcpy(log_len, log_buf + log_len, " ");
     }
     /* package file directory and name, function name and line number info */
     if (get_fmt_enabled(level, ELOG_FMT_DIR | ELOG_FMT_FUNC | ELOG_FMT_LINE)) {

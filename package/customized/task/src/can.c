@@ -35,7 +35,7 @@ void thread3_entry(void *parameter)
             RT_WAITING_FOREVER, &c) == RT_EOK) {
             RteRunnableTask3();
             a3++;
-            rt_thread_delay(5);
+            // rt_thread_delay(5);
         }
     }
 }

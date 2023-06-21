@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\f407.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\f407.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Jun 20 23:01:06 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jun 21 23:21:31 2023
 <BR><P>
-<H3>Maximum Stack Usage =        512 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        504 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; rtthread_startup &rArr; rt_hw_board_init &rArr; LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
 <P>
@@ -701,7 +701,7 @@ Global Symbols
 <P><STRONG><a name="[19a]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, components.o(i.$Sub$$main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 512<LI>Call Chain = main &rArr; rtthread_startup &rArr; rt_hw_board_init &rArr; LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
+<BR><BR>[Stack]<UL><LI>Max Depth = 504<LI>Call Chain = main &rArr; rtthread_startup &rArr; rt_hw_board_init &rArr; LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtthread_startup
 </UL>
@@ -1090,7 +1090,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e8]"></a>LogInit</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, elog_1.o(i.LogInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
+<BR><BR>[Stack]<UL><LI>Max Depth = 480<LI>Call Chain = LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_start
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_set_fmt
@@ -1616,7 +1616,6 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyLongPressHoldHandler
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyDoubleClickHandler
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_strcpy
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_start
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_set_output_enabled
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_set_fmt
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_set_filter_lvl
@@ -1730,11 +1729,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_start
 </UL>
 
-<P><STRONG><a name="[eb]"></a>elog_start</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, elog_1.o(i.elog_start))
-<BR><BR>[Stack]<UL><LI>Max Depth = 480<LI>Call Chain = elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
+<P><STRONG><a name="[eb]"></a>elog_start</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, elog_1.o(i.elog_start))
+<BR><BR>[Stack]<UL><LI>Max Depth = 472<LI>Call Chain = elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_output
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_set_output_enabled
+<BR>[Calls]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elog_set_output_enabled
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogInit
 </UL>
@@ -1820,7 +1818,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[169]"></a>rt_hw_board_init</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, board_1.o(i.rt_hw_board_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 496<LI>Call Chain = rt_hw_board_init &rArr; LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
+<BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = rt_hw_board_init &rArr; LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
@@ -2125,11 +2123,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_sleep
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thread1_entry
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thread4_entry
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thread2_entry
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thread5_entry
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;thread3_entry
 </UL>
 
 <P><STRONG><a name="[179]"></a>rt_thread_detach</STRONG> (Thumb, 102 bytes, Stack size 16 bytes, thread.o(i.rt_thread_detach))
@@ -2344,7 +2337,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a8]"></a>rtthread_startup</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, components.o(i.rtthread_startup))
-<BR><BR>[Stack]<UL><LI>Max Depth = 504<LI>Call Chain = rtthread_startup &rArr; rt_hw_board_init &rArr; LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
+<BR><BR>[Stack]<UL><LI>Max Depth = 496<LI>Call Chain = rtthread_startup &rArr; rt_hw_board_init &rArr; LogInit &rArr; elog_start &rArr; elog_set_output_enabled &rArr; elog_output &rArr;  elog_output (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_idle_init
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_system_timer_thread_init
@@ -2357,55 +2350,50 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[71]"></a>thread1_entry</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, system.o(i.thread1_entry))
+<P><STRONG><a name="[71]"></a>thread1_entry</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, system.o(i.thread1_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = thread1_entry &rArr; rt_event_recv &rArr; rt_timer_start &rArr; rt_schedule &rArr; _scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTaskEventSetObj
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_delay
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_event_recv
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RteRunnableTask1
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysApiTaskInitById
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_1.o(i.thread_sample_init)
 </UL>
-<P><STRONG><a name="[72]"></a>thread2_entry</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, nad.o(i.thread2_entry))
+<P><STRONG><a name="[72]"></a>thread2_entry</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, nad.o(i.thread2_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = thread2_entry &rArr; rt_event_recv &rArr; rt_timer_start &rArr; rt_schedule &rArr; _scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTaskEventSetObj
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_delay
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_event_recv
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RteRunnableTask2
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysApiTaskInitById
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_1.o(i.thread_sample_init)
 </UL>
-<P><STRONG><a name="[73]"></a>thread3_entry</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, can.o(i.thread3_entry))
+<P><STRONG><a name="[73]"></a>thread3_entry</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, can.o(i.thread3_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = thread3_entry &rArr; rt_event_recv &rArr; rt_timer_start &rArr; rt_schedule &rArr; _scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTaskEventSetObj
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_delay
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_event_recv
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysApiTaskInitById
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RteRunnableTask3
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_1.o(i.thread_sample_init)
 </UL>
-<P><STRONG><a name="[74]"></a>thread4_entry</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, platform.o(i.thread4_entry))
+<P><STRONG><a name="[74]"></a>thread4_entry</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, platform.o(i.thread4_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = thread4_entry &rArr; rt_event_recv &rArr; rt_timer_start &rArr; rt_schedule &rArr; _scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTaskEventSetObj
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_delay
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_event_recv
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RteRunnableTask4
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysApiTaskInitById
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_1.o(i.thread_sample_init)
 </UL>
-<P><STRONG><a name="[75]"></a>thread5_entry</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, custom.o(i.thread5_entry))
+<P><STRONG><a name="[75]"></a>thread5_entry</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, custom.o(i.thread5_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = thread5_entry &rArr; rt_event_recv &rArr; rt_timer_start &rArr; rt_schedule &rArr; _scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTaskEventSetObj
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_thread_delay
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_event_recv
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RteRunnableTask5
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysApiTaskInitById

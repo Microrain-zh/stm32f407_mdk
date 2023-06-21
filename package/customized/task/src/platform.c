@@ -23,7 +23,7 @@ void thread4_entry(void *parameter)
             RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &d) == RT_EOK) {
             RteRunnableTask4();
             a4++;
-            rt_thread_delay(5);
+            // rt_thread_delay(5);
         }
     }
 }
