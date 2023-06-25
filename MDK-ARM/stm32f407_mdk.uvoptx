@@ -415,80 +415,176 @@
           <Type>0</Type>
           <LineNumber>45</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220130</Address>
+          <Address>134228666</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\task\src\can.c</Filename>
+          <Filename>..\package\customized\task\src\nad.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/task/src/can.c\45</Expression>
+          <Expression>\\f407\../package/customized/task/src/nad.c\45</Expression>
         </Bp>
         <Bp>
           <Number>17</Number>
           <Type>0</Type>
           <LineNumber>47</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220142</Address>
+          <Address>134228678</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\task\src\can.c</Filename>
+          <Filename>..\package\customized\task\src\nad.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/task/src/can.c\47</Expression>
+          <Expression>\\f407\../package/customized/task/src/nad.c\47</Expression>
         </Bp>
         <Bp>
           <Number>18</Number>
           <Type>0</Type>
           <LineNumber>49</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220160</Address>
+          <Address>134228696</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\task\src\can.c</Filename>
+          <Filename>..\package\customized\task\src\nad.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/task/src/can.c\49</Expression>
+          <Expression>\\f407\../package/customized/task/src/nad.c\49</Expression>
         </Bp>
         <Bp>
           <Number>19</Number>
           <Type>0</Type>
-          <LineNumber>47</LineNumber>
+          <LineNumber>24</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229854</Address>
+          <Address>134230886</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\task\src\system.c</Filename>
+          <Filename>..\package\customized\task\src\nad.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/task/src/system.c\47</Expression>
+          <Expression>\\f407\../package/customized/task/src/nad.c\24</Expression>
         </Bp>
         <Bp>
           <Number>20</Number>
           <Type>0</Type>
-          <LineNumber>49</LineNumber>
+          <LineNumber>25</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229872</Address>
+          <Address>134230906</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\package\customized\task\src\system.c</Filename>
+          <Filename>..\package\customized\task\src\nad.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\f407\../package/customized/task/src/system.c\49</Expression>
+          <Expression>\\f407\../package/customized/task/src/nad.c\25</Expression>
+        </Bp>
+        <Bp>
+          <Number>21</Number>
+          <Type>0</Type>
+          <LineNumber>158</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230306</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\platform\framework\tmr\tmr.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/platform/framework/tmr/tmr.c\158</Expression>
+        </Bp>
+        <Bp>
+          <Number>22</Number>
+          <Type>0</Type>
+          <LineNumber>138</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230244</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\platform\framework\tmr\tmr.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/platform/framework/tmr/tmr.c\138</Expression>
+        </Bp>
+        <Bp>
+          <Number>23</Number>
+          <Type>0</Type>
+          <LineNumber>140</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230256</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\platform\framework\tmr\tmr.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/platform/framework/tmr/tmr.c\140</Expression>
+        </Bp>
+        <Bp>
+          <Number>24</Number>
+          <Type>0</Type>
+          <LineNumber>144</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230268</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\platform\framework\tmr\tmr.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/platform/framework/tmr/tmr.c\144</Expression>
+        </Bp>
+        <Bp>
+          <Number>25</Number>
+          <Type>0</Type>
+          <LineNumber>142</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230262</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\platform\framework\tmr\tmr.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/platform/framework/tmr/tmr.c\142</Expression>
+        </Bp>
+        <Bp>
+          <Number>26</Number>
+          <Type>0</Type>
+          <LineNumber>142</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134230308</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\package\platform\framework\tmr\tmr.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\f407\../package/platform/framework/tmr/tmr.c\142</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -511,6 +607,11 @@
           <count>3</count>
           <WinNumber>1</WinNumber>
           <ItemText>g_systemTmrMgr</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>g_nadTmrMgr</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

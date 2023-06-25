@@ -180,7 +180,7 @@ void RteRunnableTask1(void)
 
 void RteRunnableTask2(void)
 {
-    TmgrHandleTick(TMGR_OBJ_HANDLE(g_nadTmrMgr), TIMER_TYPE_NAD);
+    TmgrHandleTick(TMGR_OBJ_HANDLE(g_nadTmrMgr), TASK_CYCLE_TIME_NAD);
     SysApiProcessEvent(SysCfgGetTaskHndById(NAD_TASK_ID));
 }
 
