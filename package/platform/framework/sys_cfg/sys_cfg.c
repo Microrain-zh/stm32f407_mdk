@@ -154,10 +154,10 @@ HndTmgr OsApiGetTmrgrHnd(TaskTimerType type)
             tmgr = TMGR_OBJ_HANDLE(g_systemTmrMgr);
             break;
         case TIMER_TYPE_NAD:
-            tmgr = TMGR_OBJ_HANDLE(g_canTmrMgr);
+            tmgr = TMGR_OBJ_HANDLE(g_nadTmrMgr);
             break;
         case TIMER_TYPE_CAN:
-            tmgr = TMGR_OBJ_HANDLE(g_nadTmrMgr);
+            tmgr = TMGR_OBJ_HANDLE(g_canTmrMgr);
             break;
         case TIMER_TYPE_PLATFORM:
             tmgr = TMGR_OBJ_HANDLE(g_platformTmrMgr);
