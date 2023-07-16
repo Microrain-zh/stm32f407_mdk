@@ -13,6 +13,22 @@
 #define IS_POWER_OF_2(x)    ((x) != 0 && (((x) & ((x) - 1)) == 0))
 #define EINVAL 22 /* Invalid argument */
 
+static struct rt_mutex output_lock;
+
+void __DIS(void)
+{
+    /* __disable_irq(); */
+    /* __asm("CPSID I"); */
+    rt_mutex_take(&output_lock, RT_WAITING_FOREVER);
+}
+
+void __EIN(void)
+{
+    /* __enable_irq(); */
+    /* __asm("CPSIE I"); */
+    rt_mutex_release(&output_lock);
+}
+
 static unsigned int RounddownPowOfTwo(unsigned int x)
 {
     int position = 0;
@@ -27,6 +43,7 @@ static unsigned int RounddownPowOfTwo(unsigned int x)
 int FifoInit(struct Fifo *fifo, void *buffer, unsigned int size, size_t esize, lock_fun lock, lock_fun unlock)
 {
     size /= esize; /* 缓冲大小换算可元素个数 */
+    rt_mutex_init(&output_lock, "fifo lock", RT_IPC_FLAG_PRIO);
 
     if (!IS_POWER_OF_2(size)) {
         /* 扩展为2的幂 */
@@ -92,17 +109,18 @@ static void FifoCopyIn(struct Fifo *fifo, const void *src, unsigned int len, uns
 unsigned int FifoIn(struct Fifo *fifo, const void *buf, unsigned int len)
 {
     unsigned int l;
+    rt_base_t level;
 
-    /* fifo->lock(); */
-    rt_base_t level = rt_hw_interrupt_disable();
+    fifo->lock();
+    // rt_base_t level = rt_hw_interrupt_disable();
     l = FifoUnused(fifo);
     if (len > l)
         len = l;
 
     FifoCopyIn(fifo, buf, len, fifo->in);
     fifo->in += len;
-    /* fifo->unlock(); */
-    rt_hw_interrupt_enable(level);
+    fifo->unlock();
+    // rt_hw_interrupt_enable(level);
 
     return len;
 }
@@ -113,8 +131,8 @@ static void FifoCopyOut(struct Fifo *fifo, void *dst, unsigned int len, unsigned
     unsigned int esize = fifo->esize;
     unsigned int l;
 
-    /* fifo->lock(); */
-    rt_base_t level = rt_hw_interrupt_disable();
+    fifo->lock();
+    // rt_base_t level = rt_hw_interrupt_disable();
     off &= fifo->mask;
     if (esize != 1) {
         off *= esize;
@@ -125,8 +143,8 @@ static void FifoCopyOut(struct Fifo *fifo, void *dst, unsigned int len, unsigned
 
     memcpy((unsigned char *)dst, (unsigned char *)fifo->data + off, l);
     memcpy((unsigned char *)dst + l, (unsigned char *)fifo->data, len - l);
-    /* fifo->unlock(); */
-    rt_hw_interrupt_enable(level);
+    fifo->unlock();
+    // rt_hw_interrupt_enable(level);
 }
 
 /* 读取队列的值，不会取出队列 */

@@ -480,12 +480,14 @@ uint8_t elog_get_filter_tag_lvl(const char *tag)
     ELOG_ASSERT(tag != ((void *)0));
     uint8_t i = 0;
     uint8_t level = ELOG_FILTER_LVL_ALL;
+    rt_base_t ilevel;
 
     if (!elog.init_ok) {
         return level;
     }
 
     elog_output_lock();
+    ilevel = rt_hw_interrupt_disable();
     /* find the tag in arr */
     for (i =0; i< ELOG_FILTER_TAG_LVL_MAX_NUM; i++){
         if (elog.filter.tag_lvl[i].tag_use_flag == true &&
@@ -495,6 +497,7 @@ uint8_t elog_get_filter_tag_lvl(const char *tag)
         }
     }
     elog_output_unlock();
+    rt_hw_interrupt_enable(ilevel);
 
     return level;
 }
@@ -570,7 +573,7 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
     char tag_sapce[ELOG_FILTER_TAG_MAX_LEN / 2 + 1] = { 0 };
     va_list args;
     int fmt_result;
-    /* rt_base_t ilevel; */
+    rt_base_t ilevel;
 
     ELOG_ASSERT(level <= ELOG_LVL_VERBOSE);
 
@@ -721,6 +724,7 @@ void elog_output(uint8_t level, const char *tag, const char *file, const char *f
 #endif
     /* unlock output */
     elog_output_unlock();
+    // rt_hw_interrupt_enable(ilevel);
 }
 
 /**

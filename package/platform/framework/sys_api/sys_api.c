@@ -2,19 +2,22 @@
 #include "rthw.h"
 
 volatile static rt_base_t g_level = 0;
+static struct rt_mutex output_lock;
 
 void __DI(void)
 {
     /* __disable_irq(); */
     /* __asm("CPSID I"); */
-    g_level = rt_hw_interrupt_disable();
+    // g_level = rt_hw_interrupt_disable();
+    rt_mutex_take(&output_lock, RT_WAITING_FOREVER);
 }
 
 void __EI(void)
 {
     /* __enable_irq(); */
     /* __asm("CPSIE I"); */
-    rt_hw_interrupt_enable(g_level);
+    // rt_hw_interrupt_enable(g_level);
+    rt_mutex_release(&output_lock);
 }
 
 static void RteEventDeQueue(HndTask this)
@@ -23,8 +26,8 @@ static void RteEventDeQueue(HndTask this)
     paraEventQueue = this->ramData->eventQueueBuf;
     rt_base_t level;
 
-    /* __DI(); */
-    level = rt_hw_interrupt_disable();
+    __DI();
+    // level = rt_hw_interrupt_disable();
     while (paraEventQueue->rteActive > 0) {
 
         uint8_t current;
@@ -36,17 +39,17 @@ static void RteEventDeQueue(HndTask this)
             current = 0;
         }
         paraEventQueue->rteServerPos = current;
-        /* __EI(); */
-        rt_hw_interrupt_enable(level);
+        __EI();
+        // rt_hw_interrupt_enable(level);
         if (this->process != NULL) {
             this->process(paraEventQueue->rteEventData[current].eventId, paraEventQueue->rteEventData[current].paraLen,
                 paraEventQueue->rteEventData[current].paraBuf);
         }
-        /* __DI(); */
-        level = rt_hw_interrupt_disable();
+        __DI();
+        // level = rt_hw_interrupt_disable();
     }
-    /* __EI(); */
-    rt_hw_interrupt_enable(level);
+    __EI();
+    // rt_hw_interrupt_enable(level);
 }
 
 static void RteEventQueueInit(HndTask this)
@@ -54,16 +57,16 @@ static void RteEventQueueInit(HndTask this)
     RteEventQueueType *paraEventQueue = NULL;
     paraEventQueue = this->ramData->eventQueueBuf;
 
-    /* _DI(); */
-    rt_base_t level = rt_hw_interrupt_disable();
+    __DI();
+    // rt_base_t level = rt_hw_interrupt_disable();
 
     paraEventQueue->rteClientPos = 0;
     paraEventQueue->rteServerPos = 0;
     paraEventQueue->rteFree = MAX_QUEUE_DATA;
     paraEventQueue->rteActive = 0;
 
-    /* __EI(); */
-    rt_hw_interrupt_enable(level);
+    __EI();
+    // rt_hw_interrupt_enable(level);
 }
 
 static SysResult RteEventEnQueue(HndTask this, uint32_t event, uint16_t len, const uint8_t *buf)
@@ -74,8 +77,8 @@ static SysResult RteEventEnQueue(HndTask this, uint32_t event, uint16_t len, con
     rt_base_t level;
 
     paraEventQueue = this->ramData->eventQueueBuf;
-    /* __DI(); */
-    level = rt_hw_interrupt_disable();
+    __DI();
+    // level = rt_hw_interrupt_disable();
     if (paraEventQueue->rteFree > 0) {
         paraEventQueue->rteFree--;
         paraEventQueue->rteActive++;
@@ -94,8 +97,8 @@ static SysResult RteEventEnQueue(HndTask this, uint32_t event, uint16_t len, con
     } else {
         ret = SYS_ERR;
     }
-    /* __EI(); */
-    rt_hw_interrupt_enable(level);
+    __EI();
+    // rt_hw_interrupt_enable(level);
 
     return ret;
 }
@@ -118,6 +121,7 @@ static SysResult SendEventDataToProcessBroadcast(uint8_t processId, uint32_t eve
 
 void SysApiInitEventQueue(HndTask this)
 {
+    rt_mutex_init(&output_lock, "sys lock", RT_IPC_FLAG_PRIO);
     if (this != NULL) {
         RteEventQueueInit(this);
     }

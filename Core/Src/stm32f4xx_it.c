@@ -191,11 +191,16 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
     rt_interrupt_enter();
     rt_err_t ret = 0;
+    volatile static uint32_t preTick = 0;
+    uint32_t curTick;
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
     rt_tick_increase();
+    // curTick = HAL_GetTick();
     if ((HAL_GetTick() % 5) == 0) {
+      // if (curTick >= preTick + 5) {
+        preTick += 5;
         ret = rt_event_send(GetTaskEventSetObj(SYSTEM_TASK_ID), TASK1_EVENT_MASK);
         ret = rt_event_send(GetTaskEventSetObj(NAD_TASK_ID), TASK2_EVENT_MASK);
         ret = rt_event_send(GetTaskEventSetObj(CAN_TASK_ID), TASK3_EVENT_MASK);
@@ -239,6 +244,7 @@ void DMA1_Stream6_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Stream6_IRQn 0 */
     if (__HAL_DMA_GET_FLAG(&hdma_usart2_tx, DMA_FLAG_TCIF2_6) != RESET) {
+      // __HAL_DMA_CLEAR_FLAG(&hdma_usart2_tx, DMA_FLAG_TCIF2_6); 
         uart_dmatx_done_isr(DEV_UART2);
     }
   /* USER CODE END DMA1_Stream6_IRQn 0 */

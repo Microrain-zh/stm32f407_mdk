@@ -28,7 +28,7 @@ typedef struct
 #define    UART1_DMA_TX_BUF_SIZE        1024
 
 #define UART2_TX_BUF_SIZE           1024
-#define UART2_RX_BUF_SIZE           124
+#define UART2_RX_BUF_SIZE           1024
 #define    UART2_DMA_RX_BUF_SIZE        128
 #define    UART2_DMA_TX_BUF_SIZE        128
 
@@ -55,13 +55,13 @@ uint32_t s_UartTxRxCount[4] = {0};
 /* fifo上锁函数 */
 static void fifo_lock(void)
 {
-    __DI();
+    __DIS();
 }
 
 /* fifo解锁函数 */
 static void fifo_unlock(void)
 {
-    __EI();
+    __EIN();
 }
 
 /**
@@ -137,8 +137,8 @@ void uart_dmarx_done_isr(uint8_t uart_id)
     
     recv_size = s_uart_dev[uart_id].dmarx_buf_size - s_uart_dev[uart_id].last_dmarx_size;
     s_UartTxRxCount[uart_id*2+1] += recv_size;
-    FifoIn(&s_uart_dev[uart_id].rx_fifo, 
-                   (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
+    FifoIn(&s_uart_dev[uart_id].rx_fifo,
+        (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
 
     s_uart_dev[uart_id].last_dmarx_size = 0;
 }
@@ -155,7 +155,7 @@ void uart_dmarx_half_done_isr(uint8_t uart_id)
     
     if(uart_id == 0)
     {
-          recv_total_size = s_uart_dev[uart_id].dmarx_buf_size - bsp_uart1_get_dmarx_buf_remain_size();
+        recv_total_size = s_uart_dev[uart_id].dmarx_buf_size - bsp_uart1_get_dmarx_buf_remain_size();
     }
     else if (uart_id == 1)
     {
@@ -164,8 +164,8 @@ void uart_dmarx_half_done_isr(uint8_t uart_id)
     recv_size = recv_total_size - s_uart_dev[uart_id].last_dmarx_size;
     s_UartTxRxCount[uart_id*2+1] += recv_size;
     
-    FifoIn(&s_uart_dev[uart_id].rx_fifo, 
-                   (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
+    FifoIn(&s_uart_dev[uart_id].rx_fifo,
+        (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
     s_uart_dev[uart_id].last_dmarx_size = recv_total_size;
 }
 
@@ -181,7 +181,7 @@ void uart_dmarx_idle_isr(uint8_t uart_id)
     
     if(uart_id == 0)
     {
-          recv_total_size = s_uart_dev[uart_id].dmarx_buf_size - bsp_uart1_get_dmarx_buf_remain_size();
+        recv_total_size = s_uart_dev[uart_id].dmarx_buf_size - bsp_uart1_get_dmarx_buf_remain_size();
     }
     else if (uart_id == 1)
     {
@@ -189,8 +189,8 @@ void uart_dmarx_idle_isr(uint8_t uart_id)
     }
     recv_size = recv_total_size - s_uart_dev[uart_id].last_dmarx_size;
     s_UartTxRxCount[uart_id*2+1] += recv_size;
-    FifoIn(&s_uart_dev[uart_id].rx_fifo, 
-                   (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
+    FifoIn(&s_uart_dev[uart_id].rx_fifo,
+        (const uint8_t *)&(s_uart_dev[uart_id].dmarx_buf[s_uart_dev[uart_id].last_dmarx_size]), recv_size);
     s_uart_dev[uart_id].last_dmarx_size = recv_total_size;
 }
 
@@ -211,18 +211,21 @@ void uart_dmatx_done_isr(uint8_t uart_id)
  */
 void uart_poll_dma_tx(uint8_t uart_id)
 {
-      uint16_t size = 0;
-    
+    uint16_t size = 0;
+    volatile static uint16_t a6 = 0;
+    volatile static uint16_t a7 = 0;
     if (0x01 == s_uart_dev[uart_id].status)
     {
+        a7++;
         return;
     }
+    a6++;
     size = FifoOut(&s_uart_dev[uart_id].tx_fifo, s_uart_dev[uart_id].dmatx_buf,
                      s_uart_dev[uart_id].dmatx_buf_size);
     if (size != 0)
     {    
         s_UartTxRxCount[uart_id*2+0] += size;
-          if (uart_id == 0)
+        if (uart_id == 0)
         {
             s_uart_dev[uart_id].status = 0x01;    /* DMA发送状态 */
               bsp_uart1_dmatx_config(s_uart_dev[uart_id].dmatx_buf, size);

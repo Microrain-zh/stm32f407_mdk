@@ -29,5 +29,6 @@ unsigned int FifoOut(struct Fifo *fifo, void *buf, unsigned int len);
 unsigned int GetFifoSize(struct Fifo *fifo);
 unsigned int GetFreeSize(struct Fifo *fifo);
 unsigned int FifoLen(struct Fifo *fifo);
-
+void __DIS(void);
+void __EIN(void);
 #endif

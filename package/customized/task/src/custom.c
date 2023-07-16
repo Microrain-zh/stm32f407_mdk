@@ -11,6 +11,7 @@
 #include "sys_api.h"
 #include "elog.h"
 #include "task.h"
+#include "dev_uart.h"
 
 #define CUSTOM_START_TIME 5
 #define CUSTOM_CYCLE_TIME 5
@@ -21,7 +22,8 @@ TMR_CONSTRUCT(g_Custom, TMR_CALLBACK_FUNC_REF(Custom));
 TMR_CALLBACK_FUNC(Custom)
 {
     /* handle */
-     elog_info(SYSTEM, "custom\r\n");
+    elog_info(SYSTEM, "custom\r\n");
+    uart_poll_dma_tx(DEV_UART2);
 }
 
 void thread5_entry(void *parameter)

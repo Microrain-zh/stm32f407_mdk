@@ -98,13 +98,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
-    uart_poll_dma_tx(DEV_UART2);
-    rt_thread_delay(5);
-    /* USER CODE BEGIN 3 */
-  }
+  // while (1)
+  // {
+    return 0;
+  //   /* USER CODE END WHILE */
+  //   // uart_poll_dma_tx(DEV_UART2);
+  //   // rt_thread_delay(5);
+  //   /* USER CODE BEGIN 3 */
+  // }
   /* USER CODE END 3 */
 }
 

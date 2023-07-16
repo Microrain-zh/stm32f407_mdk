@@ -75,6 +75,7 @@ void bsp_uart1_dmatx_config(uint8_t *mem_addr, uint32_t mem_size)
 //    LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_7);
 //    /* HAL库初始化时会清空DMA完成/半完成/错误登门中断，所以此处不必清除*/
 //    __HAL_UART_ENABLE_IT(&huart3,UART_IT_IDLE);
+    // __HAL_DMA_DISABLE(&hdma_usart2_tx);
     __HAL_DMA_ENABLE_IT(&hdma_usart2_tx, DMA_IT_TC);
 //    __HAL_DMA_ENABLE_IT(&hdma_usart3_rx, DMA_IT_HT);
 //    /* HAL_UART_Receive_DMA完成/错误中断等开启*/
